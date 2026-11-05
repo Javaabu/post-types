@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "types": ["node", "vite/client", "@testing-library/jest-dom"],
+    "paths": {
+      "@javaabu/post-types": ["./resources/js"],
+      "@javaabu/post-types/*": ["./resources/js/*"],
+      "@javaabu/stencil": ["./vendor/javaabu/stencil/resources/js"],
+      "@javaabu/stencil/*": ["./vendor/javaabu/stencil/resources/js/*"],
+      "@javaabu/filters": ["./vendor/javaabu/filters/resources/js"],
+      "@javaabu/filters/*": ["./vendor/javaabu/filters/resources/js/*"],
+      "@javaabu/bulk-actions": ["./vendor/javaabu/bulk-actions/resources/js"],
+      "@javaabu/bulk-actions/*": ["./vendor/javaabu/bulk-actions/resources/js/*"],
+      "@javaabu/block-editor/react": ["./tests/js/shims/block-editor-react.tsx"],
+      "@javaabu/mediapicker": ["./tests/js/shims/mediapicker.tsx"]
+    }
+  },
+  "include": ["resources/js", "tests/js", "examples", "*.config.ts"]
+}

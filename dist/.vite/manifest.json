@@ -1,0 +1,11 @@
+{
+  "resources/css/post-types.css": {
+    "file": "assets/post-types-DI9wbs0r.css",
+    "name": "post-types",
+    "names": [
+      "post-types.css"
+    ],
+    "src": "resources/css/post-types.css",
+    "isEntry": true
+  }
+}

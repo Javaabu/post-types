@@ -1,0 +1,46 @@
+/*
+ * javaabu/post-types: styles for the admin and public pages. Logical
+ * properties only, so the pages work left to right and right to left.
+ */
+
+.post-types-archive {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.post-types-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.post-types-card img,
+.post-types-single__image img {
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: 0.5rem;
+}
+
+.post-types-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  opacity: 0.75;
+}
+
+.post-types-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-inline-start: 0;
+  list-style: none;
+}
+
+.post-types-pagination {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-block-start: 2rem;
+}
