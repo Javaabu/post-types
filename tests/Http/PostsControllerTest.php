@@ -251,4 +251,24 @@ class PostsControllerTest extends TestCase
             ->assertCreated()
             ->assertJsonPath('data.title', 'ޖޭސަން');
     }
+
+    #[Test]
+    public function it_shows_the_pages_in_dhivehi(): void
+    {
+        $this->app->setLocale('dv');
+
+        $this->makePost(['title' => 'ޑްރާފްޓް']);
+
+        $this->actingAs($this->user())
+            ->get('/admin/news')
+            ->assertOk()
+            ->assertSee('ހުރިހާ')
+            ->assertSee('ޓްރޭޝަށް ލާ');
+
+        $this->actingAs($this->user())
+            ->get('/admin/news/create')
+            ->assertOk()
+            ->assertSee('ސުރުޚީ')
+            ->assertSee('ޝާއިޢުކުރާ ތާރީޚް');
+    }
 }
