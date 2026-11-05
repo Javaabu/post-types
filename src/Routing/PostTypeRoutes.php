@@ -3,6 +3,7 @@
 namespace Javaabu\PostTypes\Routing;
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Exceptions\UrlGenerationException;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Javaabu\PostTypes\Facades\PostTypes;
@@ -334,7 +335,12 @@ class PostTypeRoutes
             return null;
         }
 
-        return route($route, $parameters);
+        try {
+            return route($route, $parameters);
+        } catch (UrlGenerationException) {
+            // The post type's permalink changed after its routes were registered
+            return null;
+        }
     }
 
     public static function archiveUrl(PostType|string $type): ?string

@@ -39,6 +39,8 @@ trait InteractsWithPostTypes
 
     protected function defineRoutes($router): void
     {
+        $router->get('login', fn () => 'login')->name('login');
+
         $router->middleware('web')->group(function ($router) {
             $router->postTypesAdmin(['prefix' => 'admin', 'name' => 'admin.']);
             $router->postTypesAdmin(['guard' => 'web_admin', 'prefix' => 'staff', 'name' => 'staff.']);

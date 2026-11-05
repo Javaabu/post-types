@@ -105,9 +105,10 @@ class PostTypesServiceProvider extends ServiceProvider
                 return;
             }
 
-            foreach ($manager->types() as $type) {
+            // Post types registered later (in tests, or at runtime) get theirs too
+            $manager->registered(function (PostType $type) {
                 Permissions::register('post_type_' . $type->getKey(), $type->permissions(), label: $type->getPluralLabel());
-            }
+            });
 
             foreach ($manager->taxonomies() as $taxonomy) {
                 Permissions::register('taxonomy_' . $taxonomy->getKey(), $this->taxonomyPermissions($taxonomy), label: $taxonomy->getPluralLabel());

@@ -223,6 +223,8 @@ class Term extends Model
      */
     public function fillDefaults(): void
     {
+        $this->order ??= 0;
+
         $slug = Slug::make(blank($this->slug) ? (string) ($this->attributes['name'] ?? '') : $this->slug);
 
         if ($slug === '') {
