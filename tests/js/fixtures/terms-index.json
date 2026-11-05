@@ -1,0 +1,66 @@
+{
+    "taxonomy": {
+        "key": "categories",
+        "singular": "Category",
+        "plural": "Categories",
+        "description": null,
+        "slug": "categories",
+        "hierarchical": true,
+        "multiple": true,
+        "required": false,
+        "public": true,
+        "icon": "tags"
+    },
+    "terms": [
+        {
+            "id": 1,
+            "name": "ޚަބަރު",
+            "slug": "ޚަބަރު",
+            "description": null,
+            "parent_id": null,
+            "order": 0,
+            "translations": [],
+            "edit_url": "http://localhost/admin/taxonomies/categories/1/edit",
+            "delete_url": "http://localhost/admin/taxonomies/categories/1",
+            "depth": 0,
+            "posts_count": 0
+        },
+        {
+            "id": 2,
+            "name": "ކުޅިވަރު",
+            "slug": "ކުޅިވަރު",
+            "description": null,
+            "parent_id": 1,
+            "order": 0,
+            "translations": [],
+            "edit_url": "http://localhost/admin/taxonomies/categories/2/edit",
+            "delete_url": "http://localhost/admin/taxonomies/categories/2",
+            "depth": 1,
+            "posts_count": 0
+        }
+    ],
+    "search": "",
+    "create_url": "http://localhost/admin/taxonomies/categories/create",
+    "index_url": "http://localhost/admin/taxonomies/categories",
+    "status": null,
+    "strings": {
+        "title": "Categories",
+        "description": "",
+        "add": "Add Category",
+        "new_title": "New Category",
+        "edit_title": "Edit Category",
+        "back": "Back to Categories",
+        "empty": "No categories yet.",
+        "no_results": "Nothing matches this search.",
+        "search": "Search",
+        "column_name": "Name",
+        "column_slug": "Slug",
+        "column_posts": "Posts",
+        "actions": "Actions",
+        "edit": "Edit",
+        "delete": "Delete",
+        "confirm_delete": "Delete this term? Posts keep their other terms."
+    },
+    "layout": "layouts.app",
+    "layout_section": "content"
+}

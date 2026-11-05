@@ -1,0 +1,136 @@
+{
+    "taxonomy": {
+        "key": "categories",
+        "singular": "Category",
+        "plural": "Categories",
+        "description": null,
+        "slug": "categories",
+        "hierarchical": true,
+        "multiple": true,
+        "required": false,
+        "public": true,
+        "icon": "tags"
+    },
+    "term": null,
+    "form": {
+        "stencil": 1,
+        "id": "term-form",
+        "action": "http://localhost/admin/taxonomies/categories",
+        "method": "POST",
+        "operation": "create",
+        "submit": "Save",
+        "state": {
+            "name": null,
+            "slug": null,
+            "parent_id": null,
+            "order": 0,
+            "description": null
+        },
+        "live": null,
+        "components": [
+            {
+                "type": "section",
+                "key": "section-0",
+                "props": {
+                    "heading": "Category",
+                    "columns": {
+                        "default": 1,
+                        "md": 2
+                    }
+                },
+                "children": [
+                    {
+                        "type": "text",
+                        "key": "name",
+                        "name": "name",
+                        "component": "Text",
+                        "props": {
+                            "label": "Name",
+                            "required": true,
+                            "thaana": true,
+                            "maxLength": 255
+                        }
+                    },
+                    {
+                        "type": "text",
+                        "key": "slug",
+                        "name": "slug",
+                        "component": "Text",
+                        "props": {
+                            "label": "Slug",
+                            "help": "The last part of the URL. Leave it empty to make one from the name.",
+                            "maxLength": 190
+                        }
+                    },
+                    {
+                        "type": "select",
+                        "key": "parent_id",
+                        "name": "parent_id",
+                        "component": "Select2",
+                        "props": {
+                            "label": "Parent",
+                            "options": [
+                                {
+                                    "value": "1",
+                                    "label": "ޚަބަރު"
+                                },
+                                {
+                                    "value": "2",
+                                    "label": "— ކުޅިވަރު"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "text",
+                        "key": "order",
+                        "name": "order",
+                        "component": "Number",
+                        "props": {
+                            "label": "Order",
+                            "min": 0,
+                            "step": 1
+                        }
+                    },
+                    {
+                        "type": "textarea",
+                        "key": "description",
+                        "name": "description",
+                        "component": "Textarea",
+                        "props": {
+                            "label": "Description",
+                            "rows": 3,
+                            "thaana": true,
+                            "maxLength": 2000
+                        },
+                        "span": {
+                            "md": "full"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "index_url": "http://localhost/admin/taxonomies/categories",
+    "status": null,
+    "strings": {
+        "title": "Categories",
+        "description": "",
+        "add": "Add Category",
+        "new_title": "New Category",
+        "edit_title": "Edit Category",
+        "back": "Back to Categories",
+        "empty": "No categories yet.",
+        "no_results": "Nothing matches this search.",
+        "search": "Search",
+        "column_name": "Name",
+        "column_slug": "Slug",
+        "column_posts": "Posts",
+        "actions": "Actions",
+        "edit": "Edit",
+        "delete": "Delete",
+        "confirm_delete": "Delete this term? Posts keep their other terms."
+    },
+    "layout": "layouts.app",
+    "layout_section": "content"
+}

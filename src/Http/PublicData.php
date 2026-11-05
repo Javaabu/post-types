@@ -52,6 +52,8 @@ class PublicData
             ...$this->card($post),
             'excerpt' => $post->excerpt,
             'content' => $this->type->supportsFeature(PostType::CONTENT) ? $post->contentDocument()->toArray() : null,
+            // Rendered by the Blade views of the blocks (media blocks resolve their files), for React's BlockContent html
+            'content_html' => $this->type->supportsFeature(PostType::CONTENT) ? $post->contentDocument()->toHtml() : null,
             'meta' => $this->type->supportsFeature(PostType::META) ? $post->getAllMeta() : [],
             'status' => $post->status,
             'published' => $post->isPublished(),

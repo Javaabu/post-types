@@ -1,0 +1,2427 @@
+{
+    "post_type": {
+        "key": "news",
+        "singular": "News article",
+        "plural": "News",
+        "description": null,
+        "icon": "file-text",
+        "supports": [
+            "content",
+            "excerpt",
+            "media",
+            "meta",
+            "author",
+            "scheduling"
+        ],
+        "taxonomies": [
+            {
+                "key": "categories",
+                "singular": "Category",
+                "plural": "Categories",
+                "description": null,
+                "slug": "categories",
+                "hierarchical": true,
+                "multiple": true,
+                "required": false,
+                "public": true,
+                "icon": "tags"
+            },
+            {
+                "key": "tags",
+                "singular": "Tag",
+                "plural": "Tags",
+                "description": null,
+                "slug": "tags",
+                "hierarchical": false,
+                "multiple": true,
+                "required": false,
+                "public": true,
+                "icon": "tags"
+            }
+        ],
+        "statuses": [
+            {
+                "key": "draft",
+                "label": "Draft",
+                "public": false,
+                "color": "secondary"
+            },
+            {
+                "key": "pending",
+                "label": "Pending review",
+                "public": false,
+                "color": "warning"
+            },
+            {
+                "key": "published",
+                "label": "Published",
+                "public": true,
+                "color": "success"
+            }
+        ],
+        "default_status": "draft",
+        "slug": "news",
+        "permalink": "{year}/{slug}",
+        "public": true,
+        "has_archive": true
+    },
+    "post": {
+        "id": 1,
+        "title": "ރާއްޖޭގެ ޚަބަރު",
+        "slug": "ރާއްޖޭގެ-ޚަބަރު",
+        "status": "published",
+        "status_label": "Published",
+        "status_color": "success",
+        "published": true,
+        "scheduled": false,
+        "trashed": false,
+        "published_at": "2026-11-06T10:00:00+00:00",
+        "published_at_label": "6 Nov 2026, 10:00",
+        "updated_at": "2026-11-06T10:00:00+00:00",
+        "updated_at_label": "0 seconds ago",
+        "author": null,
+        "terms": [],
+        "thumbnail": null,
+        "translations": [],
+        "url": "http://localhost/news/2026/%DE%83%DE%A7%DE%87%DE%B0%DE%96%DE%AD%DE%8E%DE%AC-%DE%9A%DE%A6%DE%84%DE%A6%DE%83%DE%AA",
+        "edit_url": "http://localhost/admin/news/1/edit",
+        "delete_url": "http://localhost/admin/news/1",
+        "restore_url": null,
+        "force_delete_url": null,
+        "excerpt": null,
+        "content": {
+            "type": "doc",
+            "content": []
+        },
+        "meta": [],
+        "taxonomies": {
+            "categories": [],
+            "tags": []
+        },
+        "featured_image": null,
+        "created_at": "2026-11-06T10:00:00+00:00"
+    },
+    "form": {
+        "stencil": 1,
+        "id": "post-form",
+        "action": "http://localhost/admin/news/1",
+        "method": "PATCH",
+        "operation": "edit",
+        "submit": "Save",
+        "state": {
+            "title": "ރާއްޖޭގެ ޚަބަރު",
+            "slug": "ރާއްޖޭގެ-ޚަބަރު",
+            "content": {
+                "type": "doc",
+                "content": []
+            },
+            "excerpt": null,
+            "meta": {
+                "subtitle": null,
+                "featured": null
+            },
+            "status": "published",
+            "published_at": "2026-11-06 10:00",
+            "featured_image": null,
+            "taxonomies": {
+                "categories": [],
+                "tags": []
+            }
+        },
+        "live": null,
+        "components": [
+            {
+                "type": "grid",
+                "key": "grid-0",
+                "props": {
+                    "columns": {
+                        "default": 1,
+                        "lg": 3
+                    }
+                },
+                "children": [
+                    {
+                        "type": "group",
+                        "key": "group-0-0",
+                        "children": [
+                            {
+                                "type": "section",
+                                "key": "section-0-0-0",
+                                "props": {
+                                    "heading": "News article"
+                                },
+                                "children": [
+                                    {
+                                        "type": "text",
+                                        "key": "title",
+                                        "name": "title",
+                                        "component": "Text",
+                                        "props": {
+                                            "label": "Title",
+                                            "required": true,
+                                            "thaana": true,
+                                            "maxLength": 255
+                                        }
+                                    },
+                                    {
+                                        "type": "text",
+                                        "key": "slug",
+                                        "name": "slug",
+                                        "component": "Text",
+                                        "props": {
+                                            "label": "Slug",
+                                            "help": "The last part of the URL. Leave it empty to make one from the title.",
+                                            "maxLength": 190
+                                        }
+                                    },
+                                    {
+                                        "type": "block-editor",
+                                        "key": "content",
+                                        "name": "content",
+                                        "props": {
+                                            "label": "Content",
+                                            "profile": "default",
+                                            "toolbar": true,
+                                            "config": {
+                                                "version": 1,
+                                                "profile": "default",
+                                                "locale": "en",
+                                                "blocks": [
+                                                    {
+                                                        "name": "paragraph",
+                                                        "title": "Text",
+                                                        "description": "A plain paragraph",
+                                                        "group": "block",
+                                                        "content": "inline*",
+                                                        "marks": null,
+                                                        "insertable": true,
+                                                        "category": "text",
+                                                        "icon": "pilcrow",
+                                                        "keywords": [
+                                                            "text",
+                                                            "p"
+                                                        ],
+                                                        "attributes": {
+                                                            "textAlign": {
+                                                                "type": "enum",
+                                                                "default": null,
+                                                                "editable": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "start",
+                                                                        "label": "Start"
+                                                                    },
+                                                                    {
+                                                                        "value": "center",
+                                                                        "label": "Center"
+                                                                    },
+                                                                    {
+                                                                        "value": "end",
+                                                                        "label": "End"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "dir": {
+                                                                "type": "enum",
+                                                                "default": null,
+                                                                "editable": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "ltr",
+                                                                        "label": "Ltr"
+                                                                    },
+                                                                    {
+                                                                        "value": "rtl",
+                                                                        "label": "Rtl"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "heading",
+                                                        "title": "Heading",
+                                                        "description": "A section heading",
+                                                        "group": "block",
+                                                        "content": "inline*",
+                                                        "marks": null,
+                                                        "insertable": true,
+                                                        "category": "text",
+                                                        "icon": "heading",
+                                                        "keywords": [
+                                                            "title",
+                                                            "h1",
+                                                            "h2",
+                                                            "h3",
+                                                            "h4"
+                                                        ],
+                                                        "attributes": {
+                                                            "level": {
+                                                                "type": "enum",
+                                                                "default": 1,
+                                                                "editable": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "1",
+                                                                        "label": "1"
+                                                                    },
+                                                                    {
+                                                                        "value": "2",
+                                                                        "label": "2"
+                                                                    },
+                                                                    {
+                                                                        "value": "3",
+                                                                        "label": "3"
+                                                                    },
+                                                                    {
+                                                                        "value": "4",
+                                                                        "label": "4"
+                                                                    },
+                                                                    {
+                                                                        "value": "5",
+                                                                        "label": "5"
+                                                                    },
+                                                                    {
+                                                                        "value": "6",
+                                                                        "label": "6"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "textAlign": {
+                                                                "type": "enum",
+                                                                "default": null,
+                                                                "editable": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "start",
+                                                                        "label": "Start"
+                                                                    },
+                                                                    {
+                                                                        "value": "center",
+                                                                        "label": "Center"
+                                                                    },
+                                                                    {
+                                                                        "value": "end",
+                                                                        "label": "End"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "dir": {
+                                                                "type": "enum",
+                                                                "default": null,
+                                                                "editable": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "ltr",
+                                                                        "label": "Ltr"
+                                                                    },
+                                                                    {
+                                                                        "value": "rtl",
+                                                                        "label": "Rtl"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "bulletList",
+                                                        "title": "Bulleted list",
+                                                        "description": "A list with bullets",
+                                                        "group": "block",
+                                                        "content": "listItem+",
+                                                        "marks": null,
+                                                        "insertable": true,
+                                                        "category": "text",
+                                                        "icon": "list",
+                                                        "keywords": [
+                                                            "bullet",
+                                                            "list",
+                                                            "ul",
+                                                            "unordered"
+                                                        ],
+                                                        "attributes": {
+                                                            "dir": {
+                                                                "type": "enum",
+                                                                "default": null,
+                                                                "editable": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "ltr",
+                                                                        "label": "Ltr"
+                                                                    },
+                                                                    {
+                                                                        "value": "rtl",
+                                                                        "label": "Rtl"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "orderedList",
+                                                        "title": "Numbered list",
+                                                        "description": "A list with numbers",
+                                                        "group": "block",
+                                                        "content": "listItem+",
+                                                        "marks": null,
+                                                        "insertable": true,
+                                                        "category": "text",
+                                                        "icon": "list-ordered",
+                                                        "keywords": [
+                                                            "numbered",
+                                                            "ordered",
+                                                            "list",
+                                                            "ol"
+                                                        ],
+                                                        "attributes": {
+                                                            "start": {
+                                                                "type": "integer",
+                                                                "default": 1,
+                                                                "editable": true,
+                                                                "input": "number",
+                                                                "label": "Start at",
+                                                                "required": false,
+                                                                "thaana": false,
+                                                                "min": 0
+                                                            },
+                                                            "type": {
+                                                                "type": "enum",
+                                                                "default": null,
+                                                                "editable": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "1",
+                                                                        "label": "1"
+                                                                    },
+                                                                    {
+                                                                        "value": "a",
+                                                                        "label": "A"
+                                                                    },
+                                                                    {
+                                                                        "value": "A",
+                                                                        "label": "A"
+                                                                    },
+                                                                    {
+                                                                        "value": "i",
+                                                                        "label": "I"
+                                                                    },
+                                                                    {
+                                                                        "value": "I",
+                                                                        "label": "I"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "dir": {
+                                                                "type": "enum",
+                                                                "default": null,
+                                                                "editable": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "ltr",
+                                                                        "label": "Ltr"
+                                                                    },
+                                                                    {
+                                                                        "value": "rtl",
+                                                                        "label": "Rtl"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "listItem",
+                                                        "title": "List item",
+                                                        "description": "",
+                                                        "group": "",
+                                                        "content": "paragraph block*",
+                                                        "marks": null,
+                                                        "insertable": false,
+                                                        "category": "text",
+                                                        "icon": "square",
+                                                        "keywords": [],
+                                                        "attributes": {}
+                                                    },
+                                                    {
+                                                        "name": "blockquote",
+                                                        "title": "Quote",
+                                                        "description": "A quotation",
+                                                        "group": "block",
+                                                        "content": "block+",
+                                                        "marks": null,
+                                                        "insertable": true,
+                                                        "category": "text",
+                                                        "icon": "quote",
+                                                        "keywords": [
+                                                            "quote",
+                                                            "citation"
+                                                        ],
+                                                        "attributes": {
+                                                            "dir": {
+                                                                "type": "enum",
+                                                                "default": null,
+                                                                "editable": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "ltr",
+                                                                        "label": "Ltr"
+                                                                    },
+                                                                    {
+                                                                        "value": "rtl",
+                                                                        "label": "Rtl"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "callout",
+                                                        "title": "Callout",
+                                                        "description": "A highlighted note",
+                                                        "group": "block",
+                                                        "content": "inline*",
+                                                        "marks": null,
+                                                        "insertable": true,
+                                                        "category": "text",
+                                                        "icon": "info",
+                                                        "keywords": [
+                                                            "note",
+                                                            "notice",
+                                                            "alert",
+                                                            "warning",
+                                                            "tip"
+                                                        ],
+                                                        "attributes": {
+                                                            "variant": {
+                                                                "type": "enum",
+                                                                "default": "info",
+                                                                "editable": true,
+                                                                "input": "select",
+                                                                "label": "Style",
+                                                                "required": true,
+                                                                "thaana": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "info",
+                                                                        "label": "Information"
+                                                                    },
+                                                                    {
+                                                                        "value": "success",
+                                                                        "label": "Success"
+                                                                    },
+                                                                    {
+                                                                        "value": "warning",
+                                                                        "label": "Warning"
+                                                                    },
+                                                                    {
+                                                                        "value": "error",
+                                                                        "label": "Error"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "dir": {
+                                                                "type": "enum",
+                                                                "default": null,
+                                                                "editable": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "ltr",
+                                                                        "label": "Ltr"
+                                                                    },
+                                                                    {
+                                                                        "value": "rtl",
+                                                                        "label": "Rtl"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "codeBlock",
+                                                        "title": "Code",
+                                                        "description": "A code snippet",
+                                                        "group": "block",
+                                                        "content": "text*",
+                                                        "marks": [],
+                                                        "insertable": true,
+                                                        "category": "text",
+                                                        "icon": "code",
+                                                        "keywords": [
+                                                            "code",
+                                                            "snippet",
+                                                            "pre"
+                                                        ],
+                                                        "attributes": {
+                                                            "language": {
+                                                                "type": "string",
+                                                                "default": null,
+                                                                "editable": true,
+                                                                "input": "text",
+                                                                "label": "Language",
+                                                                "required": false,
+                                                                "thaana": false,
+                                                                "max": 32
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "table",
+                                                        "title": "Table",
+                                                        "description": "Rows and columns",
+                                                        "group": "block",
+                                                        "content": "tableRow+",
+                                                        "marks": null,
+                                                        "insertable": true,
+                                                        "category": "text",
+                                                        "icon": "table",
+                                                        "keywords": [
+                                                            "grid",
+                                                            "rows",
+                                                            "columns",
+                                                            "spreadsheet"
+                                                        ],
+                                                        "attributes": {
+                                                            "dir": {
+                                                                "type": "enum",
+                                                                "default": null,
+                                                                "editable": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "ltr",
+                                                                        "label": "Ltr"
+                                                                    },
+                                                                    {
+                                                                        "value": "rtl",
+                                                                        "label": "Rtl"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "tableRow",
+                                                        "title": "Table row",
+                                                        "description": "",
+                                                        "group": "",
+                                                        "content": "(tableCell | tableHeader)*",
+                                                        "marks": null,
+                                                        "insertable": false,
+                                                        "category": "text",
+                                                        "icon": "square",
+                                                        "keywords": [],
+                                                        "attributes": {}
+                                                    },
+                                                    {
+                                                        "name": "tableHeader",
+                                                        "title": "Table header cell",
+                                                        "description": "",
+                                                        "group": "",
+                                                        "content": "block+",
+                                                        "marks": null,
+                                                        "insertable": false,
+                                                        "category": "text",
+                                                        "icon": "square",
+                                                        "keywords": [],
+                                                        "attributes": {
+                                                            "colspan": {
+                                                                "type": "integer",
+                                                                "default": 1,
+                                                                "editable": false
+                                                            },
+                                                            "rowspan": {
+                                                                "type": "integer",
+                                                                "default": 1,
+                                                                "editable": false
+                                                            },
+                                                            "colwidth": {
+                                                                "type": "json",
+                                                                "default": null,
+                                                                "editable": false
+                                                            },
+                                                            "dir": {
+                                                                "type": "enum",
+                                                                "default": null,
+                                                                "editable": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "ltr",
+                                                                        "label": "Ltr"
+                                                                    },
+                                                                    {
+                                                                        "value": "rtl",
+                                                                        "label": "Rtl"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "tableCell",
+                                                        "title": "Table cell",
+                                                        "description": "",
+                                                        "group": "",
+                                                        "content": "block+",
+                                                        "marks": null,
+                                                        "insertable": false,
+                                                        "category": "text",
+                                                        "icon": "square",
+                                                        "keywords": [],
+                                                        "attributes": {
+                                                            "colspan": {
+                                                                "type": "integer",
+                                                                "default": 1,
+                                                                "editable": false
+                                                            },
+                                                            "rowspan": {
+                                                                "type": "integer",
+                                                                "default": 1,
+                                                                "editable": false
+                                                            },
+                                                            "colwidth": {
+                                                                "type": "json",
+                                                                "default": null,
+                                                                "editable": false
+                                                            },
+                                                            "dir": {
+                                                                "type": "enum",
+                                                                "default": null,
+                                                                "editable": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "ltr",
+                                                                        "label": "Ltr"
+                                                                    },
+                                                                    {
+                                                                        "value": "rtl",
+                                                                        "label": "Rtl"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "horizontalRule",
+                                                        "title": "Divider",
+                                                        "description": "A line between sections",
+                                                        "group": "block",
+                                                        "content": "",
+                                                        "marks": null,
+                                                        "insertable": true,
+                                                        "category": "text",
+                                                        "icon": "minus",
+                                                        "keywords": [
+                                                            "divider",
+                                                            "separator",
+                                                            "rule",
+                                                            "hr",
+                                                            "line"
+                                                        ],
+                                                        "attributes": {}
+                                                    },
+                                                    {
+                                                        "name": "image",
+                                                        "title": "Image",
+                                                        "description": "An image from the media library",
+                                                        "group": "block",
+                                                        "content": "",
+                                                        "marks": null,
+                                                        "insertable": true,
+                                                        "category": "media",
+                                                        "icon": "image",
+                                                        "keywords": [
+                                                            "photo",
+                                                            "picture",
+                                                            "img",
+                                                            "figure",
+                                                            "media"
+                                                        ],
+                                                        "attributes": {
+                                                            "mediaId": {
+                                                                "type": "integer",
+                                                                "default": null,
+                                                                "editable": false
+                                                            },
+                                                            "src": {
+                                                                "type": "url",
+                                                                "default": null,
+                                                                "editable": false
+                                                            },
+                                                            "width": {
+                                                                "type": "integer",
+                                                                "default": null,
+                                                                "editable": false
+                                                            },
+                                                            "height": {
+                                                                "type": "integer",
+                                                                "default": null,
+                                                                "editable": false
+                                                            },
+                                                            "alt": {
+                                                                "type": "string",
+                                                                "default": null,
+                                                                "editable": true,
+                                                                "input": "text",
+                                                                "label": "Alt text",
+                                                                "help": "Describes the image for people who can't see it.",
+                                                                "required": false,
+                                                                "thaana": true,
+                                                                "max": 255
+                                                            },
+                                                            "caption": {
+                                                                "type": "string",
+                                                                "default": null,
+                                                                "editable": true,
+                                                                "input": "text",
+                                                                "label": "Caption",
+                                                                "required": false,
+                                                                "thaana": true,
+                                                                "max": 500
+                                                            },
+                                                            "link": {
+                                                                "type": "url",
+                                                                "default": null,
+                                                                "editable": true,
+                                                                "input": "url",
+                                                                "label": "Link",
+                                                                "required": false,
+                                                                "thaana": false
+                                                            }
+                                                        },
+                                                        "mediapicker": {
+                                                            "url": "",
+                                                            "types": [
+                                                                {
+                                                                    "value": "image",
+                                                                    "label": "Image",
+                                                                    "icon": "image"
+                                                                },
+                                                                {
+                                                                    "value": "video",
+                                                                    "label": "Video",
+                                                                    "icon": "film"
+                                                                },
+                                                                {
+                                                                    "value": "audio",
+                                                                    "label": "Audio",
+                                                                    "icon": "music"
+                                                                },
+                                                                {
+                                                                    "value": "document",
+                                                                    "label": "Document",
+                                                                    "icon": "file-text"
+                                                                },
+                                                                {
+                                                                    "value": "archive",
+                                                                    "label": "Archive",
+                                                                    "icon": "file-archive"
+                                                                }
+                                                            ],
+                                                            "accept": "image/jpeg,image/png,image/gif,image/webp,image/avif,video/mp4,video/webm,video/ogg,video/quicktime,audio/mpeg,audio/mp3,audio/wav,audio/x-wav,audio/ogg,audio/mp4,audio/aac,audio/webm,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation,text/plain,text/csv,application/zip,application/x-zip-compressed",
+                                                            "max_size": 10240,
+                                                            "crop_presets": [
+                                                                {
+                                                                    "name": "square",
+                                                                    "label": "Square",
+                                                                    "aspect": 1
+                                                                },
+                                                                {
+                                                                    "name": "wide",
+                                                                    "label": "Wide (16:9)",
+                                                                    "aspect": 1.7777777777777777
+                                                                },
+                                                                {
+                                                                    "name": "landscape",
+                                                                    "label": "Landscape (4:3)",
+                                                                    "aspect": 1.3333333333333333
+                                                                },
+                                                                {
+                                                                    "name": "portrait",
+                                                                    "label": "Portrait (3:4)",
+                                                                    "aspect": 0.75
+                                                                },
+                                                                {
+                                                                    "name": "free",
+                                                                    "label": "Free",
+                                                                    "aspect": null
+                                                                }
+                                                            ],
+                                                            "strings": {
+                                                                "media_library": "Media library",
+                                                                "upload": "Upload",
+                                                                "upload_media": "Upload media",
+                                                                "upload_files": "Upload files",
+                                                                "uploading": "Uploading…",
+                                                                "upload_failed": "The upload failed.",
+                                                                "drop_files": "Drop files here or choose them",
+                                                                "choose_files": "Choose files",
+                                                                "max_size": "Up to :size each",
+                                                                "search": "Search",
+                                                                "search_media": "Search media",
+                                                                "type": "Type",
+                                                                "all_types": "All types",
+                                                                "uploaded_by": "Uploaded by",
+                                                                "anyone": "Anyone",
+                                                                "only_mine": "Only mine",
+                                                                "from": "From",
+                                                                "to": "To",
+                                                                "sort_by": "Sort by",
+                                                                "newest": "Newest",
+                                                                "oldest": "Oldest",
+                                                                "name_a_z": "Name (A–Z)",
+                                                                "largest": "Largest",
+                                                                "filter": "Filter",
+                                                                "reset": "Reset",
+                                                                "grid": "Grid",
+                                                                "list": "List",
+                                                                "no_media": "No media yet",
+                                                                "no_matching_media": "No media matches these filters.",
+                                                                "load_more": "Load more",
+                                                                "select": "Select",
+                                                                "select_all": "Select all",
+                                                                "selected": ":count selected",
+                                                                "clear_selection": "Clear selection",
+                                                                "insert": "Insert",
+                                                                "choose": "Choose",
+                                                                "choose_media": "Choose media",
+                                                                "choose_image": "Choose an image",
+                                                                "choose_images": "Choose images",
+                                                                "choose_file": "Choose a file",
+                                                                "choose_video": "Choose a video",
+                                                                "change": "Change",
+                                                                "remove": "Remove",
+                                                                "cancel": "Cancel",
+                                                                "close": "Close",
+                                                                "save": "Save",
+                                                                "saving": "Saving…",
+                                                                "saved": "Saved",
+                                                                "edit": "Edit",
+                                                                "view": "View",
+                                                                "delete": "Delete",
+                                                                "delete_selected": "Delete selected",
+                                                                "delete_confirm": "Delete this file? Pages that use it will lose it.",
+                                                                "delete_many_confirm": "Delete the selected files? Pages that use them will lose them.",
+                                                                "details": "Details",
+                                                                "name": "Name",
+                                                                "description": "Description",
+                                                                "alt": "Alt text",
+                                                                "alt_help": "Describes the image for people who can't see it.",
+                                                                "caption": "Caption",
+                                                                "file_name": "File name",
+                                                                "file_type": "File type",
+                                                                "file_size": "File size",
+                                                                "dimensions": "Dimensions",
+                                                                "uploaded_at": "Uploaded",
+                                                                "url": "URL",
+                                                                "copy_url": "Copy URL",
+                                                                "copied": "Copied",
+                                                                "download": "Download",
+                                                                "open": "Open",
+                                                                "preview": "Preview",
+                                                                "crop": "Crop",
+                                                                "crops": "Crops",
+                                                                "crop_image": "Crop image",
+                                                                "crop_help": "Crops don't change the original. Images that use a crop are made again from it.",
+                                                                "save_crop": "Save crop",
+                                                                "aspect_ratio": "Aspect ratio",
+                                                                "not_cropped": "Not cropped: the whole image is used",
+                                                                "cropped": "Cropped",
+                                                                "rotate_left": "Rotate left",
+                                                                "rotate_right": "Rotate right",
+                                                                "zoom": "Zoom",
+                                                                "back_to_library": "Back to the library",
+                                                                "no_selection": "Nothing chosen",
+                                                                "image": "Image",
+                                                                "gallery": "Gallery",
+                                                                "file": "File",
+                                                                "video": "Video",
+                                                                "columns": "Columns",
+                                                                "link": "Link",
+                                                                "size": "Size",
+                                                                "autoplay": "Autoplay",
+                                                                "loop": "Loop",
+                                                                "muted": "Muted",
+                                                                "controls": "Controls",
+                                                                "label": "Label",
+                                                                "move_up": "Move up",
+                                                                "move_down": "Move down",
+                                                                "error": "Something went wrong. Try again."
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "embed",
+                                                        "title": "Video",
+                                                        "description": "A YouTube or Vimeo video",
+                                                        "group": "block",
+                                                        "content": "",
+                                                        "marks": null,
+                                                        "insertable": true,
+                                                        "category": "embed",
+                                                        "icon": "play",
+                                                        "keywords": [
+                                                            "video",
+                                                            "youtube",
+                                                            "vimeo",
+                                                            "iframe"
+                                                        ],
+                                                        "attributes": {
+                                                            "src": {
+                                                                "type": "url",
+                                                                "default": null,
+                                                                "editable": true,
+                                                                "input": "url",
+                                                                "label": "URL",
+                                                                "required": true,
+                                                                "thaana": false
+                                                            },
+                                                            "title": {
+                                                                "type": "string",
+                                                                "default": null,
+                                                                "editable": true,
+                                                                "input": "text",
+                                                                "label": "Title",
+                                                                "required": false,
+                                                                "thaana": true,
+                                                                "max": 255
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "button",
+                                                        "title": "Button",
+                                                        "description": "A button that opens a link",
+                                                        "group": "block",
+                                                        "content": "",
+                                                        "marks": null,
+                                                        "insertable": true,
+                                                        "category": "advanced",
+                                                        "icon": "mouse-pointer-click",
+                                                        "keywords": [
+                                                            "link",
+                                                            "call to action",
+                                                            "cta"
+                                                        ],
+                                                        "attributes": {
+                                                            "text": {
+                                                                "type": "string",
+                                                                "default": null,
+                                                                "editable": true,
+                                                                "input": "text",
+                                                                "label": "Text",
+                                                                "required": true,
+                                                                "thaana": true,
+                                                                "max": 100
+                                                            },
+                                                            "url": {
+                                                                "type": "url",
+                                                                "default": null,
+                                                                "editable": true,
+                                                                "input": "url",
+                                                                "label": "Link",
+                                                                "required": true,
+                                                                "thaana": false
+                                                            },
+                                                            "variant": {
+                                                                "type": "enum",
+                                                                "default": "primary",
+                                                                "editable": true,
+                                                                "input": "select",
+                                                                "label": "Style",
+                                                                "required": true,
+                                                                "thaana": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "primary",
+                                                                        "label": "Primary"
+                                                                    },
+                                                                    {
+                                                                        "value": "secondary",
+                                                                        "label": "Secondary"
+                                                                    },
+                                                                    {
+                                                                        "value": "outline",
+                                                                        "label": "Outline"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "newTab": {
+                                                                "type": "boolean",
+                                                                "default": false,
+                                                                "editable": true,
+                                                                "input": "checkbox",
+                                                                "label": "Open in a new tab",
+                                                                "required": false,
+                                                                "thaana": false
+                                                            },
+                                                            "align": {
+                                                                "type": "enum",
+                                                                "default": "start",
+                                                                "editable": true,
+                                                                "input": "select",
+                                                                "label": "Alignment",
+                                                                "required": true,
+                                                                "thaana": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "start",
+                                                                        "label": "Start"
+                                                                    },
+                                                                    {
+                                                                        "value": "center",
+                                                                        "label": "Center"
+                                                                    },
+                                                                    {
+                                                                        "value": "end",
+                                                                        "label": "End"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "columns",
+                                                        "title": "Columns",
+                                                        "description": "Blocks side by side",
+                                                        "group": "block",
+                                                        "content": "column{1,6}",
+                                                        "marks": null,
+                                                        "insertable": true,
+                                                        "category": "layout",
+                                                        "icon": "columns",
+                                                        "keywords": [
+                                                            "layout",
+                                                            "grid",
+                                                            "row",
+                                                            "side by side"
+                                                        ],
+                                                        "attributes": {
+                                                            "layout": {
+                                                                "type": "enum",
+                                                                "default": "1-1",
+                                                                "editable": true,
+                                                                "input": "select",
+                                                                "label": "Layout",
+                                                                "required": true,
+                                                                "thaana": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "1-1",
+                                                                        "label": "50 / 50"
+                                                                    },
+                                                                    {
+                                                                        "value": "1-2",
+                                                                        "label": "33 / 67"
+                                                                    },
+                                                                    {
+                                                                        "value": "2-1",
+                                                                        "label": "67 / 33"
+                                                                    },
+                                                                    {
+                                                                        "value": "1-1-1",
+                                                                        "label": "33 / 33 / 33"
+                                                                    },
+                                                                    {
+                                                                        "value": "1-2-1",
+                                                                        "label": "25 / 50 / 25"
+                                                                    },
+                                                                    {
+                                                                        "value": "2-1-1",
+                                                                        "label": "50 / 25 / 25"
+                                                                    },
+                                                                    {
+                                                                        "value": "1-1-2",
+                                                                        "label": "25 / 25 / 50"
+                                                                    },
+                                                                    {
+                                                                        "value": "1-1-1-1",
+                                                                        "label": "25 / 25 / 25 / 25"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "stackAt": {
+                                                                "type": "enum",
+                                                                "default": "md",
+                                                                "editable": true,
+                                                                "input": "select",
+                                                                "label": "Stack the columns",
+                                                                "required": true,
+                                                                "thaana": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "sm",
+                                                                        "label": "On phones"
+                                                                    },
+                                                                    {
+                                                                        "value": "md",
+                                                                        "label": "On tablets and phones"
+                                                                    },
+                                                                    {
+                                                                        "value": "lg",
+                                                                        "label": "Below desktop width"
+                                                                    },
+                                                                    {
+                                                                        "value": "never",
+                                                                        "label": "Never"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "gap": {
+                                                                "type": "enum",
+                                                                "default": "md",
+                                                                "editable": true,
+                                                                "input": "select",
+                                                                "label": "Gap",
+                                                                "required": true,
+                                                                "thaana": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "none",
+                                                                        "label": "None"
+                                                                    },
+                                                                    {
+                                                                        "value": "sm",
+                                                                        "label": "Small"
+                                                                    },
+                                                                    {
+                                                                        "value": "md",
+                                                                        "label": "Medium"
+                                                                    },
+                                                                    {
+                                                                        "value": "lg",
+                                                                        "label": "Large"
+                                                                    }
+                                                                ]
+                                                            },
+                                                            "verticalAlign": {
+                                                                "type": "enum",
+                                                                "default": "stretch",
+                                                                "editable": true,
+                                                                "input": "select",
+                                                                "label": "Vertical alignment",
+                                                                "required": true,
+                                                                "thaana": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "stretch",
+                                                                        "label": "Stretch"
+                                                                    },
+                                                                    {
+                                                                        "value": "start",
+                                                                        "label": "Start"
+                                                                    },
+                                                                    {
+                                                                        "value": "center",
+                                                                        "label": "Center"
+                                                                    },
+                                                                    {
+                                                                        "value": "end",
+                                                                        "label": "End"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "column",
+                                                        "title": "Column",
+                                                        "description": "",
+                                                        "group": "",
+                                                        "content": "block+",
+                                                        "marks": null,
+                                                        "insertable": false,
+                                                        "category": "text",
+                                                        "icon": "square",
+                                                        "keywords": [],
+                                                        "attributes": {}
+                                                    },
+                                                    {
+                                                        "name": "html",
+                                                        "title": "HTML",
+                                                        "description": "Custom HTML, sanitized",
+                                                        "group": "block",
+                                                        "content": "",
+                                                        "marks": null,
+                                                        "insertable": true,
+                                                        "category": "advanced",
+                                                        "icon": "code-xml",
+                                                        "keywords": [
+                                                            "html",
+                                                            "markup",
+                                                            "raw",
+                                                            "custom"
+                                                        ],
+                                                        "attributes": {
+                                                            "html": {
+                                                                "type": "text",
+                                                                "default": null,
+                                                                "editable": true,
+                                                                "input": "code",
+                                                                "label": "HTML",
+                                                                "required": true,
+                                                                "thaana": false
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "hardBreak",
+                                                        "title": "Line break",
+                                                        "description": "",
+                                                        "group": "inline",
+                                                        "content": "",
+                                                        "marks": null,
+                                                        "insertable": false,
+                                                        "category": "text",
+                                                        "icon": "square",
+                                                        "keywords": [],
+                                                        "attributes": {}
+                                                    },
+                                                    {
+                                                        "name": "gallery",
+                                                        "title": "Gallery",
+                                                        "description": "Images from the media library in a grid",
+                                                        "group": "block",
+                                                        "content": "",
+                                                        "marks": null,
+                                                        "insertable": true,
+                                                        "category": "media",
+                                                        "icon": "images",
+                                                        "keywords": [
+                                                            "photos",
+                                                            "images",
+                                                            "grid",
+                                                            "album",
+                                                            "media"
+                                                        ],
+                                                        "attributes": {
+                                                            "items": {
+                                                                "type": "json",
+                                                                "default": null,
+                                                                "editable": false
+                                                            },
+                                                            "columns": {
+                                                                "type": "integer",
+                                                                "default": 3,
+                                                                "editable": true,
+                                                                "input": "number",
+                                                                "label": "Columns",
+                                                                "required": false,
+                                                                "thaana": false,
+                                                                "min": 1,
+                                                                "max": 6
+                                                            },
+                                                            "caption": {
+                                                                "type": "string",
+                                                                "default": null,
+                                                                "editable": true,
+                                                                "input": "text",
+                                                                "label": "Caption",
+                                                                "required": false,
+                                                                "thaana": true,
+                                                                "max": 500
+                                                            }
+                                                        },
+                                                        "mediapicker": {
+                                                            "url": "",
+                                                            "types": [
+                                                                {
+                                                                    "value": "image",
+                                                                    "label": "Image",
+                                                                    "icon": "image"
+                                                                },
+                                                                {
+                                                                    "value": "video",
+                                                                    "label": "Video",
+                                                                    "icon": "film"
+                                                                },
+                                                                {
+                                                                    "value": "audio",
+                                                                    "label": "Audio",
+                                                                    "icon": "music"
+                                                                },
+                                                                {
+                                                                    "value": "document",
+                                                                    "label": "Document",
+                                                                    "icon": "file-text"
+                                                                },
+                                                                {
+                                                                    "value": "archive",
+                                                                    "label": "Archive",
+                                                                    "icon": "file-archive"
+                                                                }
+                                                            ],
+                                                            "accept": "image/jpeg,image/png,image/gif,image/webp,image/avif,video/mp4,video/webm,video/ogg,video/quicktime,audio/mpeg,audio/mp3,audio/wav,audio/x-wav,audio/ogg,audio/mp4,audio/aac,audio/webm,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation,text/plain,text/csv,application/zip,application/x-zip-compressed",
+                                                            "max_size": 10240,
+                                                            "crop_presets": [
+                                                                {
+                                                                    "name": "square",
+                                                                    "label": "Square",
+                                                                    "aspect": 1
+                                                                },
+                                                                {
+                                                                    "name": "wide",
+                                                                    "label": "Wide (16:9)",
+                                                                    "aspect": 1.7777777777777777
+                                                                },
+                                                                {
+                                                                    "name": "landscape",
+                                                                    "label": "Landscape (4:3)",
+                                                                    "aspect": 1.3333333333333333
+                                                                },
+                                                                {
+                                                                    "name": "portrait",
+                                                                    "label": "Portrait (3:4)",
+                                                                    "aspect": 0.75
+                                                                },
+                                                                {
+                                                                    "name": "free",
+                                                                    "label": "Free",
+                                                                    "aspect": null
+                                                                }
+                                                            ],
+                                                            "strings": {
+                                                                "media_library": "Media library",
+                                                                "upload": "Upload",
+                                                                "upload_media": "Upload media",
+                                                                "upload_files": "Upload files",
+                                                                "uploading": "Uploading…",
+                                                                "upload_failed": "The upload failed.",
+                                                                "drop_files": "Drop files here or choose them",
+                                                                "choose_files": "Choose files",
+                                                                "max_size": "Up to :size each",
+                                                                "search": "Search",
+                                                                "search_media": "Search media",
+                                                                "type": "Type",
+                                                                "all_types": "All types",
+                                                                "uploaded_by": "Uploaded by",
+                                                                "anyone": "Anyone",
+                                                                "only_mine": "Only mine",
+                                                                "from": "From",
+                                                                "to": "To",
+                                                                "sort_by": "Sort by",
+                                                                "newest": "Newest",
+                                                                "oldest": "Oldest",
+                                                                "name_a_z": "Name (A–Z)",
+                                                                "largest": "Largest",
+                                                                "filter": "Filter",
+                                                                "reset": "Reset",
+                                                                "grid": "Grid",
+                                                                "list": "List",
+                                                                "no_media": "No media yet",
+                                                                "no_matching_media": "No media matches these filters.",
+                                                                "load_more": "Load more",
+                                                                "select": "Select",
+                                                                "select_all": "Select all",
+                                                                "selected": ":count selected",
+                                                                "clear_selection": "Clear selection",
+                                                                "insert": "Insert",
+                                                                "choose": "Choose",
+                                                                "choose_media": "Choose media",
+                                                                "choose_image": "Choose an image",
+                                                                "choose_images": "Choose images",
+                                                                "choose_file": "Choose a file",
+                                                                "choose_video": "Choose a video",
+                                                                "change": "Change",
+                                                                "remove": "Remove",
+                                                                "cancel": "Cancel",
+                                                                "close": "Close",
+                                                                "save": "Save",
+                                                                "saving": "Saving…",
+                                                                "saved": "Saved",
+                                                                "edit": "Edit",
+                                                                "view": "View",
+                                                                "delete": "Delete",
+                                                                "delete_selected": "Delete selected",
+                                                                "delete_confirm": "Delete this file? Pages that use it will lose it.",
+                                                                "delete_many_confirm": "Delete the selected files? Pages that use them will lose them.",
+                                                                "details": "Details",
+                                                                "name": "Name",
+                                                                "description": "Description",
+                                                                "alt": "Alt text",
+                                                                "alt_help": "Describes the image for people who can't see it.",
+                                                                "caption": "Caption",
+                                                                "file_name": "File name",
+                                                                "file_type": "File type",
+                                                                "file_size": "File size",
+                                                                "dimensions": "Dimensions",
+                                                                "uploaded_at": "Uploaded",
+                                                                "url": "URL",
+                                                                "copy_url": "Copy URL",
+                                                                "copied": "Copied",
+                                                                "download": "Download",
+                                                                "open": "Open",
+                                                                "preview": "Preview",
+                                                                "crop": "Crop",
+                                                                "crops": "Crops",
+                                                                "crop_image": "Crop image",
+                                                                "crop_help": "Crops don't change the original. Images that use a crop are made again from it.",
+                                                                "save_crop": "Save crop",
+                                                                "aspect_ratio": "Aspect ratio",
+                                                                "not_cropped": "Not cropped: the whole image is used",
+                                                                "cropped": "Cropped",
+                                                                "rotate_left": "Rotate left",
+                                                                "rotate_right": "Rotate right",
+                                                                "zoom": "Zoom",
+                                                                "back_to_library": "Back to the library",
+                                                                "no_selection": "Nothing chosen",
+                                                                "image": "Image",
+                                                                "gallery": "Gallery",
+                                                                "file": "File",
+                                                                "video": "Video",
+                                                                "columns": "Columns",
+                                                                "link": "Link",
+                                                                "size": "Size",
+                                                                "autoplay": "Autoplay",
+                                                                "loop": "Loop",
+                                                                "muted": "Muted",
+                                                                "controls": "Controls",
+                                                                "label": "Label",
+                                                                "move_up": "Move up",
+                                                                "move_down": "Move down",
+                                                                "error": "Something went wrong. Try again."
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "file",
+                                                        "title": "File",
+                                                        "description": "A file from the media library to download",
+                                                        "group": "block",
+                                                        "content": "",
+                                                        "marks": null,
+                                                        "insertable": true,
+                                                        "category": "media",
+                                                        "icon": "file-text",
+                                                        "keywords": [
+                                                            "download",
+                                                            "document",
+                                                            "pdf",
+                                                            "attachment",
+                                                            "media"
+                                                        ],
+                                                        "attributes": {
+                                                            "mediaId": {
+                                                                "type": "integer",
+                                                                "default": null,
+                                                                "editable": false
+                                                            },
+                                                            "href": {
+                                                                "type": "url",
+                                                                "default": null,
+                                                                "editable": false
+                                                            },
+                                                            "fileName": {
+                                                                "type": "string",
+                                                                "default": null,
+                                                                "editable": false
+                                                            },
+                                                            "size": {
+                                                                "type": "string",
+                                                                "default": null,
+                                                                "editable": false
+                                                            },
+                                                            "mimeType": {
+                                                                "type": "string",
+                                                                "default": null,
+                                                                "editable": false
+                                                            },
+                                                            "label": {
+                                                                "type": "string",
+                                                                "default": null,
+                                                                "editable": true,
+                                                                "input": "text",
+                                                                "label": "Label",
+                                                                "required": false,
+                                                                "thaana": true,
+                                                                "max": 255
+                                                            }
+                                                        },
+                                                        "mediapicker": {
+                                                            "url": "",
+                                                            "types": [
+                                                                {
+                                                                    "value": "image",
+                                                                    "label": "Image",
+                                                                    "icon": "image"
+                                                                },
+                                                                {
+                                                                    "value": "video",
+                                                                    "label": "Video",
+                                                                    "icon": "film"
+                                                                },
+                                                                {
+                                                                    "value": "audio",
+                                                                    "label": "Audio",
+                                                                    "icon": "music"
+                                                                },
+                                                                {
+                                                                    "value": "document",
+                                                                    "label": "Document",
+                                                                    "icon": "file-text"
+                                                                },
+                                                                {
+                                                                    "value": "archive",
+                                                                    "label": "Archive",
+                                                                    "icon": "file-archive"
+                                                                }
+                                                            ],
+                                                            "accept": "image/jpeg,image/png,image/gif,image/webp,image/avif,video/mp4,video/webm,video/ogg,video/quicktime,audio/mpeg,audio/mp3,audio/wav,audio/x-wav,audio/ogg,audio/mp4,audio/aac,audio/webm,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation,text/plain,text/csv,application/zip,application/x-zip-compressed",
+                                                            "max_size": 10240,
+                                                            "crop_presets": [
+                                                                {
+                                                                    "name": "square",
+                                                                    "label": "Square",
+                                                                    "aspect": 1
+                                                                },
+                                                                {
+                                                                    "name": "wide",
+                                                                    "label": "Wide (16:9)",
+                                                                    "aspect": 1.7777777777777777
+                                                                },
+                                                                {
+                                                                    "name": "landscape",
+                                                                    "label": "Landscape (4:3)",
+                                                                    "aspect": 1.3333333333333333
+                                                                },
+                                                                {
+                                                                    "name": "portrait",
+                                                                    "label": "Portrait (3:4)",
+                                                                    "aspect": 0.75
+                                                                },
+                                                                {
+                                                                    "name": "free",
+                                                                    "label": "Free",
+                                                                    "aspect": null
+                                                                }
+                                                            ],
+                                                            "strings": {
+                                                                "media_library": "Media library",
+                                                                "upload": "Upload",
+                                                                "upload_media": "Upload media",
+                                                                "upload_files": "Upload files",
+                                                                "uploading": "Uploading…",
+                                                                "upload_failed": "The upload failed.",
+                                                                "drop_files": "Drop files here or choose them",
+                                                                "choose_files": "Choose files",
+                                                                "max_size": "Up to :size each",
+                                                                "search": "Search",
+                                                                "search_media": "Search media",
+                                                                "type": "Type",
+                                                                "all_types": "All types",
+                                                                "uploaded_by": "Uploaded by",
+                                                                "anyone": "Anyone",
+                                                                "only_mine": "Only mine",
+                                                                "from": "From",
+                                                                "to": "To",
+                                                                "sort_by": "Sort by",
+                                                                "newest": "Newest",
+                                                                "oldest": "Oldest",
+                                                                "name_a_z": "Name (A–Z)",
+                                                                "largest": "Largest",
+                                                                "filter": "Filter",
+                                                                "reset": "Reset",
+                                                                "grid": "Grid",
+                                                                "list": "List",
+                                                                "no_media": "No media yet",
+                                                                "no_matching_media": "No media matches these filters.",
+                                                                "load_more": "Load more",
+                                                                "select": "Select",
+                                                                "select_all": "Select all",
+                                                                "selected": ":count selected",
+                                                                "clear_selection": "Clear selection",
+                                                                "insert": "Insert",
+                                                                "choose": "Choose",
+                                                                "choose_media": "Choose media",
+                                                                "choose_image": "Choose an image",
+                                                                "choose_images": "Choose images",
+                                                                "choose_file": "Choose a file",
+                                                                "choose_video": "Choose a video",
+                                                                "change": "Change",
+                                                                "remove": "Remove",
+                                                                "cancel": "Cancel",
+                                                                "close": "Close",
+                                                                "save": "Save",
+                                                                "saving": "Saving…",
+                                                                "saved": "Saved",
+                                                                "edit": "Edit",
+                                                                "view": "View",
+                                                                "delete": "Delete",
+                                                                "delete_selected": "Delete selected",
+                                                                "delete_confirm": "Delete this file? Pages that use it will lose it.",
+                                                                "delete_many_confirm": "Delete the selected files? Pages that use them will lose them.",
+                                                                "details": "Details",
+                                                                "name": "Name",
+                                                                "description": "Description",
+                                                                "alt": "Alt text",
+                                                                "alt_help": "Describes the image for people who can't see it.",
+                                                                "caption": "Caption",
+                                                                "file_name": "File name",
+                                                                "file_type": "File type",
+                                                                "file_size": "File size",
+                                                                "dimensions": "Dimensions",
+                                                                "uploaded_at": "Uploaded",
+                                                                "url": "URL",
+                                                                "copy_url": "Copy URL",
+                                                                "copied": "Copied",
+                                                                "download": "Download",
+                                                                "open": "Open",
+                                                                "preview": "Preview",
+                                                                "crop": "Crop",
+                                                                "crops": "Crops",
+                                                                "crop_image": "Crop image",
+                                                                "crop_help": "Crops don't change the original. Images that use a crop are made again from it.",
+                                                                "save_crop": "Save crop",
+                                                                "aspect_ratio": "Aspect ratio",
+                                                                "not_cropped": "Not cropped: the whole image is used",
+                                                                "cropped": "Cropped",
+                                                                "rotate_left": "Rotate left",
+                                                                "rotate_right": "Rotate right",
+                                                                "zoom": "Zoom",
+                                                                "back_to_library": "Back to the library",
+                                                                "no_selection": "Nothing chosen",
+                                                                "image": "Image",
+                                                                "gallery": "Gallery",
+                                                                "file": "File",
+                                                                "video": "Video",
+                                                                "columns": "Columns",
+                                                                "link": "Link",
+                                                                "size": "Size",
+                                                                "autoplay": "Autoplay",
+                                                                "loop": "Loop",
+                                                                "muted": "Muted",
+                                                                "controls": "Controls",
+                                                                "label": "Label",
+                                                                "move_up": "Move up",
+                                                                "move_down": "Move down",
+                                                                "error": "Something went wrong. Try again."
+                                                            }
+                                                        }
+                                                    },
+                                                    {
+                                                        "name": "mediaVideo",
+                                                        "title": "Video file",
+                                                        "description": "A video from the media library",
+                                                        "group": "block",
+                                                        "content": "",
+                                                        "marks": null,
+                                                        "insertable": true,
+                                                        "category": "media",
+                                                        "icon": "film",
+                                                        "keywords": [
+                                                            "video",
+                                                            "movie",
+                                                            "clip",
+                                                            "mp4",
+                                                            "media"
+                                                        ],
+                                                        "attributes": {
+                                                            "mediaId": {
+                                                                "type": "integer",
+                                                                "default": null,
+                                                                "editable": false
+                                                            },
+                                                            "src": {
+                                                                "type": "url",
+                                                                "default": null,
+                                                                "editable": false
+                                                            },
+                                                            "mimeType": {
+                                                                "type": "string",
+                                                                "default": null,
+                                                                "editable": false
+                                                            },
+                                                            "caption": {
+                                                                "type": "string",
+                                                                "default": null,
+                                                                "editable": true,
+                                                                "input": "text",
+                                                                "label": "Caption",
+                                                                "required": false,
+                                                                "thaana": true,
+                                                                "max": 500
+                                                            },
+                                                            "controls": {
+                                                                "type": "boolean",
+                                                                "default": true,
+                                                                "editable": true,
+                                                                "input": "checkbox",
+                                                                "label": "Controls",
+                                                                "required": false,
+                                                                "thaana": false
+                                                            },
+                                                            "autoplay": {
+                                                                "type": "boolean",
+                                                                "default": false,
+                                                                "editable": true,
+                                                                "input": "checkbox",
+                                                                "label": "Autoplay",
+                                                                "required": false,
+                                                                "thaana": false
+                                                            },
+                                                            "loop": {
+                                                                "type": "boolean",
+                                                                "default": false,
+                                                                "editable": true,
+                                                                "input": "checkbox",
+                                                                "label": "Loop",
+                                                                "required": false,
+                                                                "thaana": false
+                                                            },
+                                                            "muted": {
+                                                                "type": "boolean",
+                                                                "default": false,
+                                                                "editable": true,
+                                                                "input": "checkbox",
+                                                                "label": "Muted",
+                                                                "required": false,
+                                                                "thaana": false
+                                                            }
+                                                        },
+                                                        "mediapicker": {
+                                                            "url": "",
+                                                            "types": [
+                                                                {
+                                                                    "value": "image",
+                                                                    "label": "Image",
+                                                                    "icon": "image"
+                                                                },
+                                                                {
+                                                                    "value": "video",
+                                                                    "label": "Video",
+                                                                    "icon": "film"
+                                                                },
+                                                                {
+                                                                    "value": "audio",
+                                                                    "label": "Audio",
+                                                                    "icon": "music"
+                                                                },
+                                                                {
+                                                                    "value": "document",
+                                                                    "label": "Document",
+                                                                    "icon": "file-text"
+                                                                },
+                                                                {
+                                                                    "value": "archive",
+                                                                    "label": "Archive",
+                                                                    "icon": "file-archive"
+                                                                }
+                                                            ],
+                                                            "accept": "image/jpeg,image/png,image/gif,image/webp,image/avif,video/mp4,video/webm,video/ogg,video/quicktime,audio/mpeg,audio/mp3,audio/wav,audio/x-wav,audio/ogg,audio/mp4,audio/aac,audio/webm,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-powerpoint,application/vnd.openxmlformats-officedocument.presentationml.presentation,text/plain,text/csv,application/zip,application/x-zip-compressed",
+                                                            "max_size": 10240,
+                                                            "crop_presets": [
+                                                                {
+                                                                    "name": "square",
+                                                                    "label": "Square",
+                                                                    "aspect": 1
+                                                                },
+                                                                {
+                                                                    "name": "wide",
+                                                                    "label": "Wide (16:9)",
+                                                                    "aspect": 1.7777777777777777
+                                                                },
+                                                                {
+                                                                    "name": "landscape",
+                                                                    "label": "Landscape (4:3)",
+                                                                    "aspect": 1.3333333333333333
+                                                                },
+                                                                {
+                                                                    "name": "portrait",
+                                                                    "label": "Portrait (3:4)",
+                                                                    "aspect": 0.75
+                                                                },
+                                                                {
+                                                                    "name": "free",
+                                                                    "label": "Free",
+                                                                    "aspect": null
+                                                                }
+                                                            ],
+                                                            "strings": {
+                                                                "media_library": "Media library",
+                                                                "upload": "Upload",
+                                                                "upload_media": "Upload media",
+                                                                "upload_files": "Upload files",
+                                                                "uploading": "Uploading…",
+                                                                "upload_failed": "The upload failed.",
+                                                                "drop_files": "Drop files here or choose them",
+                                                                "choose_files": "Choose files",
+                                                                "max_size": "Up to :size each",
+                                                                "search": "Search",
+                                                                "search_media": "Search media",
+                                                                "type": "Type",
+                                                                "all_types": "All types",
+                                                                "uploaded_by": "Uploaded by",
+                                                                "anyone": "Anyone",
+                                                                "only_mine": "Only mine",
+                                                                "from": "From",
+                                                                "to": "To",
+                                                                "sort_by": "Sort by",
+                                                                "newest": "Newest",
+                                                                "oldest": "Oldest",
+                                                                "name_a_z": "Name (A–Z)",
+                                                                "largest": "Largest",
+                                                                "filter": "Filter",
+                                                                "reset": "Reset",
+                                                                "grid": "Grid",
+                                                                "list": "List",
+                                                                "no_media": "No media yet",
+                                                                "no_matching_media": "No media matches these filters.",
+                                                                "load_more": "Load more",
+                                                                "select": "Select",
+                                                                "select_all": "Select all",
+                                                                "selected": ":count selected",
+                                                                "clear_selection": "Clear selection",
+                                                                "insert": "Insert",
+                                                                "choose": "Choose",
+                                                                "choose_media": "Choose media",
+                                                                "choose_image": "Choose an image",
+                                                                "choose_images": "Choose images",
+                                                                "choose_file": "Choose a file",
+                                                                "choose_video": "Choose a video",
+                                                                "change": "Change",
+                                                                "remove": "Remove",
+                                                                "cancel": "Cancel",
+                                                                "close": "Close",
+                                                                "save": "Save",
+                                                                "saving": "Saving…",
+                                                                "saved": "Saved",
+                                                                "edit": "Edit",
+                                                                "view": "View",
+                                                                "delete": "Delete",
+                                                                "delete_selected": "Delete selected",
+                                                                "delete_confirm": "Delete this file? Pages that use it will lose it.",
+                                                                "delete_many_confirm": "Delete the selected files? Pages that use them will lose them.",
+                                                                "details": "Details",
+                                                                "name": "Name",
+                                                                "description": "Description",
+                                                                "alt": "Alt text",
+                                                                "alt_help": "Describes the image for people who can't see it.",
+                                                                "caption": "Caption",
+                                                                "file_name": "File name",
+                                                                "file_type": "File type",
+                                                                "file_size": "File size",
+                                                                "dimensions": "Dimensions",
+                                                                "uploaded_at": "Uploaded",
+                                                                "url": "URL",
+                                                                "copy_url": "Copy URL",
+                                                                "copied": "Copied",
+                                                                "download": "Download",
+                                                                "open": "Open",
+                                                                "preview": "Preview",
+                                                                "crop": "Crop",
+                                                                "crops": "Crops",
+                                                                "crop_image": "Crop image",
+                                                                "crop_help": "Crops don't change the original. Images that use a crop are made again from it.",
+                                                                "save_crop": "Save crop",
+                                                                "aspect_ratio": "Aspect ratio",
+                                                                "not_cropped": "Not cropped: the whole image is used",
+                                                                "cropped": "Cropped",
+                                                                "rotate_left": "Rotate left",
+                                                                "rotate_right": "Rotate right",
+                                                                "zoom": "Zoom",
+                                                                "back_to_library": "Back to the library",
+                                                                "no_selection": "Nothing chosen",
+                                                                "image": "Image",
+                                                                "gallery": "Gallery",
+                                                                "file": "File",
+                                                                "video": "Video",
+                                                                "columns": "Columns",
+                                                                "link": "Link",
+                                                                "size": "Size",
+                                                                "autoplay": "Autoplay",
+                                                                "loop": "Loop",
+                                                                "muted": "Muted",
+                                                                "controls": "Controls",
+                                                                "label": "Label",
+                                                                "move_up": "Move up",
+                                                                "move_down": "Move down",
+                                                                "error": "Something went wrong. Try again."
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "marks": [
+                                                    {
+                                                        "name": "bold",
+                                                        "title": "Bold",
+                                                        "attributes": {}
+                                                    },
+                                                    {
+                                                        "name": "italic",
+                                                        "title": "Italic",
+                                                        "attributes": {}
+                                                    },
+                                                    {
+                                                        "name": "underline",
+                                                        "title": "Underline",
+                                                        "attributes": {}
+                                                    },
+                                                    {
+                                                        "name": "strike",
+                                                        "title": "Strikethrough",
+                                                        "attributes": {}
+                                                    },
+                                                    {
+                                                        "name": "code",
+                                                        "title": "Code",
+                                                        "attributes": {}
+                                                    },
+                                                    {
+                                                        "name": "link",
+                                                        "title": "Link",
+                                                        "attributes": {
+                                                            "href": {
+                                                                "type": "url",
+                                                                "default": null,
+                                                                "editable": true,
+                                                                "input": "url",
+                                                                "label": "URL",
+                                                                "required": true,
+                                                                "thaana": false
+                                                            },
+                                                            "target": {
+                                                                "type": "enum",
+                                                                "default": null,
+                                                                "editable": true,
+                                                                "input": "select",
+                                                                "label": "Open in a new tab",
+                                                                "required": false,
+                                                                "thaana": false,
+                                                                "options": [
+                                                                    {
+                                                                        "value": "_blank",
+                                                                        "label": "Yes"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ],
+                                                "strings": {
+                                                    "label": "Content",
+                                                    "placeholder": "Type / for blocks",
+                                                    "headingPlaceholder": "Heading :level",
+                                                    "emptyBlockPlaceholder": "Type something",
+                                                    "toolbar": "Formatting",
+                                                    "turnInto": "Block type",
+                                                    "bold": "Bold",
+                                                    "italic": "Italic",
+                                                    "underline": "Underline",
+                                                    "strike": "Strikethrough",
+                                                    "code": "Code",
+                                                    "link": "Link",
+                                                    "alignStart": "Align to the start",
+                                                    "alignCenter": "Align to the center",
+                                                    "alignEnd": "Align to the end",
+                                                    "undo": "Undo",
+                                                    "redo": "Redo",
+                                                    "thaana": "Type Thaana",
+                                                    "linkUrl": "Link URL",
+                                                    "linkNewTab": "Open in a new tab",
+                                                    "linkApply": "Apply",
+                                                    "linkRemove": "Remove link",
+                                                    "linkInvalid": "Use an http(s), mailto or tel link.",
+                                                    "addBlock": "Add a block",
+                                                    "searchBlocks": "Search blocks",
+                                                    "noBlocks": "No matching blocks",
+                                                    "blockActions": "Block actions (:block)",
+                                                    "dragBlock": "Drag to move, or press Enter for actions",
+                                                    "settings": "Settings",
+                                                    "moveUp": "Move up",
+                                                    "moveDown": "Move down",
+                                                    "duplicate": "Duplicate",
+                                                    "delete": "Delete",
+                                                    "blockMoved": "Moved to position :position",
+                                                    "blockDeleted": "Block deleted",
+                                                    "blockInserted": ":block added",
+                                                    "close": "Close",
+                                                    "blockSettings": ":block settings",
+                                                    "categories": {
+                                                        "text": "Text",
+                                                        "media": "Media",
+                                                        "embed": "Embeds",
+                                                        "layout": "Layout",
+                                                        "advanced": "Advanced"
+                                                    },
+                                                    "headingLevel": "Heading :level",
+                                                    "table": "Table",
+                                                    "addRowBefore": "Add a row above",
+                                                    "addRowAfter": "Add a row below",
+                                                    "addColumnBefore": "Add a column before",
+                                                    "addColumnAfter": "Add a column after",
+                                                    "deleteRow": "Delete the row",
+                                                    "deleteColumn": "Delete the column",
+                                                    "toggleHeaderRow": "Header row",
+                                                    "deleteTable": "Delete the table",
+                                                    "column": "Column :number",
+                                                    "imageEmpty": "Add the image link in the settings",
+                                                    "embedEmpty": "Add the video link in the settings",
+                                                    "embedPreview": "Video: :url",
+                                                    "buttonEmpty": "Set the button text and link in the settings",
+                                                    "htmlEmpty": "Write the HTML in the settings",
+                                                    "genericEmpty": "Set this block up in the settings",
+                                                    "editSettings": "Edit settings",
+                                                    "embeddedContent": "Embedded content",
+                                                    "errors": "This block has errors",
+                                                    "required": ":field is required."
+                                                },
+                                                "thaana": {
+                                                    "enabled": true,
+                                                    "default_on": null,
+                                                    "keymap": "phonetic",
+                                                    "shortcut": "Alt-Shift-t"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "textarea",
+                                        "key": "excerpt",
+                                        "name": "excerpt",
+                                        "component": "Textarea",
+                                        "props": {
+                                            "label": "Excerpt",
+                                            "help": "A short summary shown in lists. Leave it empty to use the start of the content.",
+                                            "rows": 3,
+                                            "thaana": true,
+                                            "maxLength": 1000
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "section",
+                                "key": "section-0-0-1",
+                                "props": {
+                                    "heading": "Details"
+                                },
+                                "children": [
+                                    {
+                                        "type": "group",
+                                        "key": "group-0-0-1-0",
+                                        "children": [
+                                            {
+                                                "type": "text",
+                                                "key": "meta.subtitle",
+                                                "name": "meta[subtitle]",
+                                                "component": "Text",
+                                                "props": {
+                                                    "label": "Subtitle",
+                                                    "maxLength": 100
+                                                }
+                                            },
+                                            {
+                                                "type": "checkbox",
+                                                "key": "meta.featured",
+                                                "name": "meta[featured]",
+                                                "component": "Checkbox",
+                                                "props": {
+                                                    "label": "Featured"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "span": {
+                            "lg": 2
+                        }
+                    },
+                    {
+                        "type": "group",
+                        "key": "group-0-1",
+                        "children": [
+                            {
+                                "type": "section",
+                                "key": "section-0-1-0",
+                                "props": {
+                                    "heading": "Publish"
+                                },
+                                "children": [
+                                    {
+                                        "type": "select",
+                                        "key": "status",
+                                        "name": "status",
+                                        "component": "Select",
+                                        "props": {
+                                            "label": "Status",
+                                            "required": true,
+                                            "options": [
+                                                {
+                                                    "value": "draft",
+                                                    "label": "Draft"
+                                                },
+                                                {
+                                                    "value": "pending",
+                                                    "label": "Pending review"
+                                                },
+                                                {
+                                                    "value": "published",
+                                                    "label": "Published"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "type": "datetime",
+                                        "key": "published_at",
+                                        "name": "published_at",
+                                        "component": "Datetime",
+                                        "props": {
+                                            "label": "Publish date",
+                                            "help": "Leave it empty to publish now. A date in the future schedules the post."
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "section",
+                                "key": "section-0-1-1",
+                                "props": {
+                                    "heading": "Media"
+                                },
+                                "children": [
+                                    {
+                                        "type": "mediapicker",
+                                        "key": "featured_image",
+                                        "name": "featured_image",
+                                        "props": {
+                                            "label": "Featured image",
+                                            "multiple": false,
+                                            "type": [
+                                                "image"
+                                            ],
+                                            "url": "",
+                                            "upload": true,
+                                            "value": [],
+                                            "types": [
+                                                {
+                                                    "value": "image",
+                                                    "label": "Image",
+                                                    "icon": "image"
+                                                },
+                                                {
+                                                    "value": "video",
+                                                    "label": "Video",
+                                                    "icon": "film"
+                                                },
+                                                {
+                                                    "value": "audio",
+                                                    "label": "Audio",
+                                                    "icon": "music"
+                                                },
+                                                {
+                                                    "value": "document",
+                                                    "label": "Document",
+                                                    "icon": "file-text"
+                                                },
+                                                {
+                                                    "value": "archive",
+                                                    "label": "Archive",
+                                                    "icon": "file-archive"
+                                                }
+                                            ],
+                                            "accept": "image/jpeg,image/png,image/gif,image/webp,image/avif",
+                                            "maxSize": 10240,
+                                            "cropPresets": [
+                                                {
+                                                    "name": "square",
+                                                    "label": "Square",
+                                                    "aspect": 1
+                                                },
+                                                {
+                                                    "name": "wide",
+                                                    "label": "Wide (16:9)",
+                                                    "aspect": 1.7777777777777777
+                                                },
+                                                {
+                                                    "name": "landscape",
+                                                    "label": "Landscape (4:3)",
+                                                    "aspect": 1.3333333333333333
+                                                },
+                                                {
+                                                    "name": "portrait",
+                                                    "label": "Portrait (3:4)",
+                                                    "aspect": 0.75
+                                                },
+                                                {
+                                                    "name": "free",
+                                                    "label": "Free",
+                                                    "aspect": null
+                                                }
+                                            ],
+                                            "strings": {
+                                                "media_library": "Media library",
+                                                "upload": "Upload",
+                                                "upload_media": "Upload media",
+                                                "upload_files": "Upload files",
+                                                "uploading": "Uploading…",
+                                                "upload_failed": "The upload failed.",
+                                                "drop_files": "Drop files here or choose them",
+                                                "choose_files": "Choose files",
+                                                "max_size": "Up to :size each",
+                                                "search": "Search",
+                                                "search_media": "Search media",
+                                                "type": "Type",
+                                                "all_types": "All types",
+                                                "uploaded_by": "Uploaded by",
+                                                "anyone": "Anyone",
+                                                "only_mine": "Only mine",
+                                                "from": "From",
+                                                "to": "To",
+                                                "sort_by": "Sort by",
+                                                "newest": "Newest",
+                                                "oldest": "Oldest",
+                                                "name_a_z": "Name (A–Z)",
+                                                "largest": "Largest",
+                                                "filter": "Filter",
+                                                "reset": "Reset",
+                                                "grid": "Grid",
+                                                "list": "List",
+                                                "no_media": "No media yet",
+                                                "no_matching_media": "No media matches these filters.",
+                                                "load_more": "Load more",
+                                                "select": "Select",
+                                                "select_all": "Select all",
+                                                "selected": ":count selected",
+                                                "clear_selection": "Clear selection",
+                                                "insert": "Insert",
+                                                "choose": "Choose",
+                                                "choose_media": "Choose media",
+                                                "choose_image": "Choose an image",
+                                                "choose_images": "Choose images",
+                                                "choose_file": "Choose a file",
+                                                "choose_video": "Choose a video",
+                                                "change": "Change",
+                                                "remove": "Remove",
+                                                "cancel": "Cancel",
+                                                "close": "Close",
+                                                "save": "Save",
+                                                "saving": "Saving…",
+                                                "saved": "Saved",
+                                                "edit": "Edit",
+                                                "view": "View",
+                                                "delete": "Delete",
+                                                "delete_selected": "Delete selected",
+                                                "delete_confirm": "Delete this file? Pages that use it will lose it.",
+                                                "delete_many_confirm": "Delete the selected files? Pages that use them will lose them.",
+                                                "details": "Details",
+                                                "name": "Name",
+                                                "description": "Description",
+                                                "alt": "Alt text",
+                                                "alt_help": "Describes the image for people who can't see it.",
+                                                "caption": "Caption",
+                                                "file_name": "File name",
+                                                "file_type": "File type",
+                                                "file_size": "File size",
+                                                "dimensions": "Dimensions",
+                                                "uploaded_at": "Uploaded",
+                                                "url": "URL",
+                                                "copy_url": "Copy URL",
+                                                "copied": "Copied",
+                                                "download": "Download",
+                                                "open": "Open",
+                                                "preview": "Preview",
+                                                "crop": "Crop",
+                                                "crops": "Crops",
+                                                "crop_image": "Crop image",
+                                                "crop_help": "Crops don't change the original. Images that use a crop are made again from it.",
+                                                "save_crop": "Save crop",
+                                                "aspect_ratio": "Aspect ratio",
+                                                "not_cropped": "Not cropped: the whole image is used",
+                                                "cropped": "Cropped",
+                                                "rotate_left": "Rotate left",
+                                                "rotate_right": "Rotate right",
+                                                "zoom": "Zoom",
+                                                "back_to_library": "Back to the library",
+                                                "no_selection": "Nothing chosen",
+                                                "image": "Image",
+                                                "gallery": "Gallery",
+                                                "file": "File",
+                                                "video": "Video",
+                                                "columns": "Columns",
+                                                "link": "Link",
+                                                "size": "Size",
+                                                "autoplay": "Autoplay",
+                                                "loop": "Loop",
+                                                "muted": "Muted",
+                                                "controls": "Controls",
+                                                "label": "Label",
+                                                "move_up": "Move up",
+                                                "move_down": "Move down",
+                                                "error": "Something went wrong. Try again."
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "section",
+                                "key": "section-0-1-2",
+                                "props": {
+                                    "heading": "Taxonomies"
+                                },
+                                "children": [
+                                    {
+                                        "type": "group",
+                                        "key": "group-0-1-2-0",
+                                        "children": [
+                                            {
+                                                "type": "select",
+                                                "key": "taxonomies.categories",
+                                                "name": "taxonomies[categories][]",
+                                                "component": "Select2",
+                                                "props": {
+                                                    "label": "Categories",
+                                                    "options": [],
+                                                    "multiple": true
+                                                }
+                                            },
+                                            {
+                                                "type": "select",
+                                                "key": "taxonomies.tags",
+                                                "name": "taxonomies[tags][]",
+                                                "component": "Select2",
+                                                "props": {
+                                                    "label": "Tags",
+                                                    "options": [],
+                                                    "multiple": true
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "index_url": "http://localhost/admin/news",
+    "status": null,
+    "strings": {
+        "title": "News",
+        "description": "",
+        "add": "Add News article",
+        "new_title": "New News article",
+        "edit_title": "Edit News article",
+        "back": "Back to News",
+        "empty": "No news yet.",
+        "no_results": "Nothing matches these filters.",
+        "column_title": "Title",
+        "column_author": "Author",
+        "column_status": "Status",
+        "column_date": "Date",
+        "column_terms": "Taxonomies",
+        "view": "View",
+        "edit": "Edit",
+        "trash": "Move to trash",
+        "restore": "Restore",
+        "force_delete": "Delete for good",
+        "confirm_trash": "Move this post to the trash?",
+        "confirm_force_delete": "Delete this post for good? This can't be undone.",
+        "no_title": "(no title)",
+        "actions": "Actions"
+    },
+    "layout": "layouts.app",
+    "layout_section": "content"
+}

@@ -1,0 +1,123 @@
+{
+    "post_type": {
+        "key": "news",
+        "singular": "News article",
+        "plural": "News",
+        "description": null,
+        "icon": "file-text",
+        "supports": [
+            "content",
+            "excerpt",
+            "media",
+            "meta",
+            "author",
+            "scheduling"
+        ],
+        "taxonomies": [
+            {
+                "key": "categories",
+                "singular": "Category",
+                "plural": "Categories",
+                "description": null,
+                "slug": "categories",
+                "hierarchical": true,
+                "multiple": true,
+                "required": false,
+                "public": true,
+                "icon": "tags"
+            },
+            {
+                "key": "tags",
+                "singular": "Tag",
+                "plural": "Tags",
+                "description": null,
+                "slug": "tags",
+                "hierarchical": false,
+                "multiple": true,
+                "required": false,
+                "public": true,
+                "icon": "tags"
+            }
+        ],
+        "statuses": [
+            {
+                "key": "draft",
+                "label": "Draft",
+                "public": false,
+                "color": "secondary"
+            },
+            {
+                "key": "pending",
+                "label": "Pending review",
+                "public": false,
+                "color": "warning"
+            },
+            {
+                "key": "published",
+                "label": "Published",
+                "public": true,
+                "color": "success"
+            }
+        ],
+        "default_status": "draft",
+        "slug": "news",
+        "permalink": "{year}/{slug}",
+        "public": true,
+        "has_archive": true
+    },
+    "posts": [
+        {
+            "id": 1,
+            "title": "ރާއްޖޭގެ ޚަބަރު",
+            "slug": "ރާއްޖޭގެ-ޚަބަރު",
+            "url": "http://localhost/news/2026/%DE%83%DE%A7%DE%87%DE%B0%DE%96%DE%AD%DE%8E%DE%AC-%DE%9A%DE%A6%DE%84%DE%A6%DE%83%DE%AA",
+            "summary": "ޚުލާޞާ",
+            "published_at": "2026-11-01T08:00:00+00:00",
+            "published_at_label": "1 November 2026",
+            "author": null,
+            "image": null,
+            "terms": [
+                {
+                    "taxonomy": "categories",
+                    "label": "Categories",
+                    "terms": [
+                        {
+                            "name": "ކުޅިވަރު",
+                            "url": "http://localhost/news/categories/%DE%86%DE%AA%DE%85%DE%A8%DE%88%DE%A6%DE%83%DE%AA"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "paginator": null,
+    "pagination": {
+        "current_page": 1,
+        "last_page": 1,
+        "per_page": 12,
+        "total": 1,
+        "prev_url": null,
+        "next_url": null
+    },
+    "taxonomy": null,
+    "term": null,
+    "title": "News",
+    "archive_url": "http://localhost/news",
+    "strings": {
+        "archive": "News",
+        "empty": "Nothing has been published here yet.",
+        "read_more": "Read more",
+        "previous": "Newer",
+        "next": "Older",
+        "by": "By :author",
+        "published_on": "Published :date",
+        "preview": "This is a preview. Visitors don't see this post yet.",
+        "back": "Back to News",
+        "pagination": {
+            "previous": "&laquo; Previous",
+            "next": "Next &raquo;"
+        }
+    },
+    "layout": "layouts.app",
+    "layout_section": "content"
+}

@@ -1,0 +1,576 @@
+{
+    "post_type": {
+        "key": "news",
+        "singular": "News article",
+        "plural": "News",
+        "description": null,
+        "icon": "file-text",
+        "supports": [
+            "content",
+            "excerpt",
+            "media",
+            "meta",
+            "author",
+            "scheduling"
+        ],
+        "taxonomies": [
+            {
+                "key": "categories",
+                "singular": "Category",
+                "plural": "Categories",
+                "description": null,
+                "slug": "categories",
+                "hierarchical": true,
+                "multiple": true,
+                "required": false,
+                "public": true,
+                "icon": "tags"
+            },
+            {
+                "key": "tags",
+                "singular": "Tag",
+                "plural": "Tags",
+                "description": null,
+                "slug": "tags",
+                "hierarchical": false,
+                "multiple": true,
+                "required": false,
+                "public": true,
+                "icon": "tags"
+            }
+        ],
+        "statuses": [
+            {
+                "key": "draft",
+                "label": "Draft",
+                "public": false,
+                "color": "secondary"
+            },
+            {
+                "key": "pending",
+                "label": "Pending review",
+                "public": false,
+                "color": "warning"
+            },
+            {
+                "key": "published",
+                "label": "Published",
+                "public": true,
+                "color": "success"
+            }
+        ],
+        "default_status": "draft",
+        "slug": "news",
+        "permalink": "{year}/{slug}",
+        "public": true,
+        "has_archive": true
+    },
+    "posts": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 1,
+                "title": "ރާއްޖޭގެ ޚަބަރު",
+                "slug": "ރާއްޖޭގެ-ޚަބަރު",
+                "status": "published",
+                "status_label": "Published",
+                "status_color": "success",
+                "published": true,
+                "scheduled": false,
+                "trashed": false,
+                "published_at": "2026-11-01T08:00:00+00:00",
+                "published_at_label": "1 Nov 2026, 08:00",
+                "updated_at": "2026-11-06T10:00:00+00:00",
+                "updated_at_label": "0 seconds ago",
+                "author": "އަޙްމަދު",
+                "terms": [
+                    {
+                        "taxonomy": "categories",
+                        "label": "Categories",
+                        "terms": [
+                            {
+                                "id": 1,
+                                "name": "ކުޅިވަރު"
+                            }
+                        ]
+                    }
+                ],
+                "thumbnail": null,
+                "translations": [],
+                "url": "http://localhost/news/2026/%DE%83%DE%A7%DE%87%DE%B0%DE%96%DE%AD%DE%8E%DE%AC-%DE%9A%DE%A6%DE%84%DE%A6%DE%83%DE%AA",
+                "edit_url": "http://localhost/admin/news/1/edit",
+                "delete_url": "http://localhost/admin/news/1",
+                "restore_url": null,
+                "force_delete_url": null
+            },
+            {
+                "id": 2,
+                "title": "ޑްރާފްޓް",
+                "slug": "ޑްރާފްޓް",
+                "status": "draft",
+                "status_label": "Draft",
+                "status_color": "secondary",
+                "published": false,
+                "scheduled": false,
+                "trashed": false,
+                "published_at": null,
+                "published_at_label": null,
+                "updated_at": "2026-11-06T10:00:00+00:00",
+                "updated_at_label": "0 seconds ago",
+                "author": null,
+                "terms": [],
+                "thumbnail": null,
+                "translations": [],
+                "url": "http://localhost/news/2026/%DE%91%DE%B0%DE%83%DE%A7%DE%8A%DE%B0%DE%93%DE%B0",
+                "edit_url": "http://localhost/admin/news/2/edit",
+                "delete_url": "http://localhost/admin/news/2",
+                "restore_url": null,
+                "force_delete_url": null
+            }
+        ],
+        "first_page_url": "http://localhost/admin/news?page=1",
+        "from": 1,
+        "last_page": 1,
+        "last_page_url": "http://localhost/admin/news?page=1",
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "page": null,
+                "active": false
+            },
+            {
+                "url": "http://localhost/admin/news?page=1",
+                "label": "1",
+                "page": 1,
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &raquo;",
+                "page": null,
+                "active": false
+            }
+        ],
+        "next_page_url": null,
+        "path": "http://localhost/admin/news",
+        "per_page": 20,
+        "prev_page_url": null,
+        "to": 2,
+        "total": 2
+    },
+    "rows": [
+        {
+            "id": 1,
+            "title": "ރާއްޖޭގެ ޚަބަރު",
+            "slug": "ރާއްޖޭގެ-ޚަބަރު",
+            "status": "published",
+            "status_label": "Published",
+            "status_color": "success",
+            "published": true,
+            "scheduled": false,
+            "trashed": false,
+            "published_at": "2026-11-01T08:00:00+00:00",
+            "published_at_label": "1 Nov 2026, 08:00",
+            "updated_at": "2026-11-06T10:00:00+00:00",
+            "updated_at_label": "0 seconds ago",
+            "author": "އަޙްމަދު",
+            "terms": [
+                {
+                    "taxonomy": "categories",
+                    "label": "Categories",
+                    "terms": [
+                        {
+                            "id": 1,
+                            "name": "ކުޅިވަރު"
+                        }
+                    ]
+                }
+            ],
+            "thumbnail": null,
+            "translations": [],
+            "url": "http://localhost/news/2026/%DE%83%DE%A7%DE%87%DE%B0%DE%96%DE%AD%DE%8E%DE%AC-%DE%9A%DE%A6%DE%84%DE%A6%DE%83%DE%AA",
+            "edit_url": "http://localhost/admin/news/1/edit",
+            "delete_url": "http://localhost/admin/news/1",
+            "restore_url": null,
+            "force_delete_url": null
+        },
+        {
+            "id": 2,
+            "title": "ޑްރާފްޓް",
+            "slug": "ޑްރާފްޓް",
+            "status": "draft",
+            "status_label": "Draft",
+            "status_color": "secondary",
+            "published": false,
+            "scheduled": false,
+            "trashed": false,
+            "published_at": null,
+            "published_at_label": null,
+            "updated_at": "2026-11-06T10:00:00+00:00",
+            "updated_at_label": "0 seconds ago",
+            "author": null,
+            "terms": [],
+            "thumbnail": null,
+            "translations": [],
+            "url": "http://localhost/news/2026/%DE%91%DE%B0%DE%83%DE%A7%DE%8A%DE%B0%DE%93%DE%B0",
+            "edit_url": "http://localhost/admin/news/2/edit",
+            "delete_url": "http://localhost/admin/news/2",
+            "restore_url": null,
+            "force_delete_url": null
+        }
+    ],
+    "filters": {
+        "id": "filter",
+        "action": "http://localhost/admin/news",
+        "form": {
+            "stencil": 1,
+            "id": "filter",
+            "action": "http://localhost/admin/news",
+            "method": "GET",
+            "operation": "create",
+            "embedded": true,
+            "columns": {
+                "default": 1,
+                "sm": 2,
+                "lg": 4
+            },
+            "state": {
+                "search": null,
+                "status": null,
+                "categories": null,
+                "tags": null,
+                "published_at_from": null,
+                "published_at_to": null,
+                "trashed": null
+            },
+            "live": null,
+            "components": [
+                {
+                    "type": "text",
+                    "key": "search",
+                    "name": "search",
+                    "component": "Text",
+                    "props": {
+                        "label": "Search",
+                        "placeholder": "Search...",
+                        "showPlaceholder": true,
+                        "thaana": true,
+                        "maxLength": 255
+                    }
+                },
+                {
+                    "type": "select",
+                    "key": "status",
+                    "name": "status",
+                    "component": "Select",
+                    "props": {
+                        "label": "Status",
+                        "placeholder": "All",
+                        "showPlaceholder": true,
+                        "options": [
+                            {
+                                "value": "draft",
+                                "label": "Draft"
+                            },
+                            {
+                                "value": "pending",
+                                "label": "Pending review"
+                            },
+                            {
+                                "value": "published",
+                                "label": "Published"
+                            },
+                            {
+                                "value": "scheduled",
+                                "label": "Scheduled"
+                            }
+                        ],
+                        "excludeSyncField": true
+                    }
+                },
+                {
+                    "type": "select",
+                    "key": "categories",
+                    "name": "categories[]",
+                    "component": "Select2",
+                    "props": {
+                        "label": "Categories",
+                        "options": [
+                            {
+                                "value": "1",
+                                "label": "ކުޅިވަރު"
+                            }
+                        ],
+                        "multiple": true,
+                        "excludeSyncField": true
+                    }
+                },
+                {
+                    "type": "select",
+                    "key": "tags",
+                    "name": "tags[]",
+                    "component": "Select2",
+                    "props": {
+                        "label": "Tags",
+                        "options": [],
+                        "multiple": true,
+                        "excludeSyncField": true
+                    }
+                },
+                {
+                    "type": "group",
+                    "key": "group-4",
+                    "props": {
+                        "columns": {
+                            "default": 1,
+                            "md": 2
+                        }
+                    },
+                    "children": [
+                        {
+                            "type": "date",
+                            "key": "published_at_from",
+                            "name": "published_at_from",
+                            "component": "Date",
+                            "props": {
+                                "label": "Publish date from"
+                            }
+                        },
+                        {
+                            "type": "date",
+                            "key": "published_at_to",
+                            "name": "published_at_to",
+                            "component": "Date",
+                            "props": {
+                                "label": "Publish date to"
+                            }
+                        }
+                    ],
+                    "span": {
+                        "default": "full",
+                        "lg": 2
+                    }
+                },
+                {
+                    "type": "select",
+                    "key": "trashed",
+                    "name": "trashed",
+                    "component": "Select",
+                    "props": {
+                        "label": "Deleted",
+                        "placeholder": "Without deleted",
+                        "showPlaceholder": true,
+                        "options": [
+                            {
+                                "value": "with",
+                                "label": "Include deleted"
+                            },
+                            {
+                                "value": "only",
+                                "label": "Only deleted"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "hidden": [],
+        "active": 0,
+        "chips": [],
+        "clearUrl": "http://localhost/admin/news",
+        "resetUrl": "http://localhost/admin/news",
+        "sort": {
+            "param": "orderby",
+            "directionParam": "order",
+            "current": "published_at",
+            "direction": "desc",
+            "default": "published_at",
+            "defaultDirection": "desc",
+            "options": [
+                {
+                    "value": "published_at",
+                    "label": "Publish date",
+                    "defaultDirection": "desc",
+                    "url": "http://localhost/admin/news?orderby=published_at&order=ASC"
+                },
+                {
+                    "value": "title",
+                    "label": "Title",
+                    "defaultDirection": "asc",
+                    "url": "http://localhost/admin/news?orderby=title&order=ASC"
+                },
+                {
+                    "value": "created_at",
+                    "label": "Created",
+                    "defaultDirection": "desc",
+                    "url": "http://localhost/admin/news?orderby=created_at&order=DESC"
+                },
+                {
+                    "value": "updated_at",
+                    "label": "Updated",
+                    "defaultDirection": "desc",
+                    "url": "http://localhost/admin/news?orderby=updated_at&order=DESC"
+                }
+            ]
+        },
+        "strings": {
+            "filters": "Filters",
+            "filter": "Filter",
+            "reset": "Clear",
+            "clearAll": "Clear all",
+            "appliedFilters": "Applied filters",
+            "remove": "Remove filter :filter",
+            "sortBy": "Sort by",
+            "direction": "Order",
+            "ascending": "Ascending",
+            "descending": "Descending"
+        }
+    },
+    "bulk_actions": {
+        "name": "posts",
+        "url": "http://localhost/admin/news/bulk",
+        "actions": [
+            {
+                "name": "publish",
+                "label": "Publish",
+                "icon": "send",
+                "color": "success",
+                "confirmation": null,
+                "form": null,
+                "meta": null
+            },
+            {
+                "name": "unpublish",
+                "label": "Move to drafts",
+                "icon": "file-pen",
+                "color": "primary",
+                "confirmation": null,
+                "form": null,
+                "meta": null
+            },
+            {
+                "name": "delete",
+                "label": "Move to trash",
+                "icon": "trash",
+                "color": "danger",
+                "confirmation": {
+                    "heading": "Move to trash",
+                    "text": "Are you sure you want to delete the selected records?",
+                    "button": "Move to trash"
+                },
+                "form": null,
+                "meta": null
+            },
+            {
+                "name": "restore",
+                "label": "Restore",
+                "icon": "undo",
+                "color": "success",
+                "confirmation": null,
+                "form": null,
+                "meta": null
+            },
+            {
+                "name": "force_delete",
+                "label": "Delete permanently",
+                "icon": "trash",
+                "color": "danger",
+                "confirmation": {
+                    "heading": "Delete permanently",
+                    "text": "Are you sure you want to permanently delete the selected records? This can't be undone.",
+                    "button": "Delete permanently"
+                },
+                "form": null,
+                "meta": null
+            }
+        ],
+        "total": 2,
+        "pageCount": 2,
+        "filters": {},
+        "result": null,
+        "old": {
+            "action": null,
+            "all": false,
+            "ids": []
+        },
+        "pollInterval": 2000,
+        "strings": {
+            "actions": "Bulk actions",
+            "apply": "Apply",
+            "choose_action": "Choose an action",
+            "selected": ":count selected",
+            "none_selected": "Select records to apply an action",
+            "select_all_matching": "Select all :total",
+            "all_selected": "All :total records are selected.",
+            "all_on_page_selected": "All :count records on this page are selected.",
+            "clear_selection": "Clear selection",
+            "cancel": "Cancel",
+            "confirm": "Confirm",
+            "running": "Running…",
+            "queued": "Running in the background",
+            "progress": ":processed of :total done",
+            "cancel_run": "Stop",
+            "dismiss": "Dismiss"
+        }
+    },
+    "tabs": [
+        {
+            "key": "all",
+            "label": "All",
+            "count": 2,
+            "url": "http://localhost/admin/news",
+            "active": true
+        },
+        {
+            "key": "draft",
+            "label": "Draft",
+            "count": 1,
+            "url": "http://localhost/admin/news?status=draft",
+            "active": false
+        },
+        {
+            "key": "published",
+            "label": "Published",
+            "count": 1,
+            "url": "http://localhost/admin/news?status=published",
+            "active": false
+        },
+        {
+            "key": "trashed",
+            "label": "Trash",
+            "count": 0,
+            "url": "http://localhost/admin/news?trashed=only",
+            "active": false
+        }
+    ],
+    "create_url": "http://localhost/admin/news/create",
+    "index_url": "http://localhost/admin/news",
+    "status": null,
+    "strings": {
+        "title": "News",
+        "description": "",
+        "add": "Add News article",
+        "new_title": "New News article",
+        "edit_title": "Edit News article",
+        "back": "Back to News",
+        "empty": "No news yet.",
+        "no_results": "Nothing matches these filters.",
+        "column_title": "Title",
+        "column_author": "Author",
+        "column_status": "Status",
+        "column_date": "Date",
+        "column_terms": "Taxonomies",
+        "view": "View",
+        "edit": "Edit",
+        "trash": "Move to trash",
+        "restore": "Restore",
+        "force_delete": "Delete for good",
+        "confirm_trash": "Move this post to the trash?",
+        "confirm_force_delete": "Delete this post for good? This can't be undone.",
+        "no_title": "(no title)",
+        "actions": "Actions"
+    },
+    "layout": "layouts.app",
+    "layout_section": "content"
+}
