@@ -10,6 +10,7 @@ use Javaabu\PostTypes\Exceptions\PostTypesException;
 use Javaabu\PostTypes\Facades\PostTypes;
 use Javaabu\PostTypes\Models\Post;
 use Javaabu\PostTypes\Routing\Permalink;
+use Javaabu\PostTypes\Routing\PostTypeRoutes;
 use Javaabu\Stencil\Components\Component;
 
 /**
@@ -590,6 +591,15 @@ class PostType implements Arrayable
     public function isPublic(): bool
     {
         return $this->public;
+    }
+
+    /**
+     * The URL of the public archive, or null when it has none or the public
+     * routes aren't registered
+     */
+    public function archiveUrl(): ?string
+    {
+        return PostTypeRoutes::archiveUrl($this);
     }
 
     public function hasArchive(): bool

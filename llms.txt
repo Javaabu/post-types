@@ -1,0 +1,42 @@
+# javaabu/post-types
+
+> WordPress-style post types for Laravel. Post types (news, events, pages) are defined fluently with PostTypes::register(PostType::make('news')->labels(...)->supports([...])->taxonomies([...])->metaFields([...])->permalink('{year}/{slug}')); every post type's posts are rows of Javaabu\PostTypes\Models\Post with a type. Taxonomies (categories, tags) are shared, flat or hierarchical. Statuses: draft, pending, published and your own; a future publish date schedules a post. Meta fields use javaabu/meta, media javaabu/mediapicker, content javaabu/block-editor. Route::postTypesAdmin() adds admin pages with javaabu/filters and javaabu/bulk-actions; Route::postTypes() adds archives, term archives and single posts with configurable permalinks and overridable templates. Blade or Inertia React. Permissions per post type through javaabu/permissions, any guard. Optional javaabu/translatable and javaabu/dynamic-menubuilder. English and Dhivehi, RTL.
+
+Paths are relative to this file. In a project, that's vendor/javaabu/post-types/.
+
+## Rules
+
+- Register taxonomies and post types in a service provider's boot() (or config('post-types.types')). Never add a model, migration, controller or views per post type; add fields with ->metaFields() and pickers with ->media().
+- Post type and taxonomy keys are permanent: they're stored on posts and name routes and permissions. Labels are plain strings or closures, translated when shown; add them to lang/dv.json.
+- Query through the post type: `PostTypes::get('news')->query()->published()`, or `Post::query()->ofType('news')`. Use `published()` (not a status check) so scheduled posts stay hidden. Use `PostTypes::postModel()` when you need the class: it's the translatable model when javaabu/translatable is enabled.
+- A post's URL is `$post->permalink()`; a term archive is `$term->archiveUrl('news')`; an archive is `PostTypes::get('news')->archiveUrl()`. Never build them by hand, and never call `url()` on posts (it's translatable's).
+- Assign terms with `$post->syncTerms('categories', [...])` or the `taxonomies` attribute; meta with `meta` or `setMeta()`.
+- Register routes yourself: `Route::postTypesAdmin([...guard, prefix, name])` and `Route::postTypes()` (after your other routes). Run `php artisan permissions:sync`, then give roles view_/edit_/delete_/force_delete_/publish_{type} and view_/edit_/delete_{taxonomy}.
+- Change public templates with resources/views/post-types/{type}/{archive|term|single}.blade.php or ->views()/->pages(); change behaviour by extending PostsController, PostForm, PostFilters, PostBulkActions or the policies and setting them in config.
+- Meta fields sit under `meta` in the post form: conditions use full paths (`visibleWhen('meta.featured', true)`).
+- Pass every user-facing string through `__()` and add it to lang/dv.json.
+
+## Docs
+
+- [Introduction](docs/intro.md): what the package does
+- [Requirements](docs/requirements.md): PHP, Laravel, dependencies, optional packages, npm
+- [Installation & Setup](docs/installation-and-setup.md): installing, migrations, the media library, defining post types, routes, permissions, layouts, Inertia, publishing
+- [AI assistants](docs/ai-assistants.md): Laravel Boost and llms.txt
+- [Defining post types](docs/basic-usage/defining-post-types.md): PostType, every method, features, classes, the registry
+- [Taxonomies and statuses](docs/basic-usage/taxonomies-and-statuses.md): Taxonomy options, terms, a post's terms, statuses, scheduling
+- [Meta, media and content](docs/basic-usage/meta-media-and-content.md): meta fields, the featured image and other media, block-editor content
+- [Admin pages](docs/basic-usage/admin-pages.md): Route::postTypesAdmin() options and routes, the index, filters, bulk actions, the forms, Blade and Inertia
+- [Public pages](docs/basic-usage/public-pages.md): Route::postTypes() options and routes, previews, templates and their variables, Inertia
+- [Permalinks](docs/basic-usage/permalinks.md): tokens, slugs, configuring permalinks
+- [Permissions](docs/basic-usage/permissions.md): the permissions, the policies' abilities, guards, overriding
+- [Configuration](docs/advanced-usage/configuration.md): every config option and the facade
+- [Models and queries](docs/advanced-usage/models-and-queries.md): Post and Term columns, methods and scopes, your own model
+- [Controllers, policies and views](docs/advanced-usage/controllers-policies-and-views.md): extending controllers, forms, filters and bulk actions, publishing views, overriding React files
+- [Translations](docs/advanced-usage/translations.md): javaabu/translatable, translatable models, per-language inputs, meta
+- [Menus](docs/advanced-usage/menus.md): posts and archives in javaabu/dynamic-menubuilder
+- [JavaScript API](docs/advanced-usage/javascript-api.md): the pages, parts and types from @javaabu/post-types
+- [Dhivehi and RTL](docs/advanced-usage/dhivehi-and-rtl.md): translations, RTL, Thaana, strings for review
+- [Questions and Security](docs/questions-and-security.md): support and reporting vulnerabilities
+- [Changelog](docs/changelog.md): where changes are listed
+- [About Us](docs/about-us.md): Javaabu
+- [Contributing to the docs](docs/contributing-to-docs.md): how the docs are built

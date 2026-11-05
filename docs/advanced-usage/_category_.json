@@ -1,0 +1,11 @@
+{
+    "position": 1.32,
+    "label": "Advanced Usage",
+    "collapsible": true,
+    "collapsed": true,
+    "link": {
+        "type": "generated-index",
+        "slug": "/post-types/_categories/advanced-usage",
+        "description": "Configuration, models and queries, overriding controllers, policies and views, translations, menus, the JavaScript API, and Dhivehi and RTL."
+    }
+}

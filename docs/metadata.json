@@ -1,0 +1,5 @@
+{
+    "name": "Post Types",
+    "description": "WordPress-style post types for Laravel: fluent definitions with taxonomies, statuses and scheduling, javaabu/meta fields, javaabu/mediapicker media and javaabu/block-editor content, admin pages with filters and bulk actions, and public archives with configurable permalinks, in Blade and Inertia React",
+    "version": "1"
+}

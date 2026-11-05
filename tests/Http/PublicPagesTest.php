@@ -3,6 +3,7 @@
 namespace Javaabu\PostTypes\Tests\Http;
 
 use Illuminate\Support\Carbon;
+use Javaabu\PostTypes\Facades\PostTypes;
 use Javaabu\PostTypes\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Test;
 
@@ -23,6 +24,8 @@ class PublicPagesTest extends TestCase
     public function it_registers_public_routes_from_the_permalink(): void
     {
         $this->assertSame(url('news'), route('news.index'));
+        $this->assertSame(url('news'), PostTypes::get('news')->archiveUrl());
+        $this->assertNull(PostTypes::get('page')->archiveUrl());
         $this->assertSame(url('news/categories/sports'), route('news.term', ['taxonomy' => 'categories', 'term' => 'sports']));
         $this->assertFalse(app('router')->has('page.index'));
         $this->assertTrue(app('router')->has('page.show'));
