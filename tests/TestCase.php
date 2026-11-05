@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\ServiceProvider as InertiaServiceProvider;
 use Javaabu\BlockEditor\BlockEditorServiceProvider;
 use Javaabu\BulkActions\BulkActionsServiceProvider;
+use Javaabu\DynamicMenubuilder\DynamicMenubuilderServiceProvider;
 use Javaabu\Filters\FiltersServiceProvider;
 use Javaabu\Forms\FormsServiceProvider;
 use Javaabu\Manifest\ManifestServiceProvider;
@@ -84,6 +85,10 @@ abstract class TestCase extends BaseTestCase
 
         if (class_exists(InertiaServiceProvider::class)) {
             $providers[] = InertiaServiceProvider::class;
+        }
+
+        if (class_exists(DynamicMenubuilderServiceProvider::class)) {
+            $providers[] = DynamicMenubuilderServiceProvider::class;
         }
 
         if (class_exists(TranslatableServiceProvider::class)) {

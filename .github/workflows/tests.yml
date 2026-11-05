@@ -76,7 +76,7 @@ jobs:
   without-optional:
     runs-on: ubuntu-latest
 
-    name: Without Inertia and translatable
+    name: Without Inertia, translatable and dynamic-menubuilder
 
     steps:
       - name: Checkout code
@@ -89,9 +89,9 @@ jobs:
           extensions: curl, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, iconv
           coverage: none
 
-      - name: Install dependencies without Inertia and translatable
+      - name: Install dependencies without the optional packages
         run: |
-          composer remove --dev inertiajs/inertia-laravel javaabu/translatable --no-interaction --no-update
+          composer remove --dev inertiajs/inertia-laravel javaabu/translatable javaabu/dynamic-menubuilder --no-interaction --no-update
           composer update --prefer-dist --no-interaction --no-progress
 
       - name: Execute tests

@@ -34,6 +34,7 @@ class PostTypesServiceProvider extends ServiceProvider
         $this->registerConfiguredTypes();
         $this->registerRouteMacros();
         $this->registerPermissions();
+        $this->registerMenus();
 
         if ($this->app->runningInConsole()) {
             if (PostTypes::$runs_migrations && config('post-types.run_migrations', true)) {
@@ -114,6 +115,14 @@ class PostTypesServiceProvider extends ServiceProvider
                 Permissions::register('taxonomy_' . $taxonomy->getKey(), $this->taxonomyPermissions($taxonomy), label: $taxonomy->getPluralLabel());
             }
         });
+    }
+
+    /**
+     * Post types as menu item sources, when javaabu/dynamic-menubuilder is installed
+     */
+    protected function registerMenus(): void
+    {
+        $this->app->booted(fn () => Integrations\Menus::register());
     }
 
     /**

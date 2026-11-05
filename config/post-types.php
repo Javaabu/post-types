@@ -128,4 +128,16 @@ return [
 
     'register_permissions' => true,
 
+    /*
+    |--------------------------------------------------------------------------
+    | Menus
+    |--------------------------------------------------------------------------
+    |
+    | With javaabu/dynamic-menubuilder installed, each public post type is a
+    | source of menu items (its posts and its archive), keyed by its key.
+    |
+    */
+
+    'menus' => true,
+
 ];

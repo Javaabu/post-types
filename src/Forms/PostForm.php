@@ -3,23 +3,19 @@
 namespace Javaabu\PostTypes\Forms;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 use Javaabu\BlockEditor\Stencil\BlockEditorField;
 use Javaabu\Mediapicker\Stencil\MediaPickerField;
-use Javaabu\Meta\Definitions\MetaField;
 use Javaabu\Meta\MetaFields;
 use Javaabu\PostTypes\Facades\PostTypes;
 use Javaabu\PostTypes\Models\Post;
 use Javaabu\PostTypes\Models\Term;
 use Javaabu\PostTypes\PostType;
 use Javaabu\PostTypes\Status;
-use Javaabu\PostTypes\Support\Translations;
 use Javaabu\PostTypes\Taxonomy;
 use Javaabu\Stencil\Components\Component;
 use Javaabu\Stencil\Components\Grid;
 use Javaabu\Stencil\Components\Group;
 use Javaabu\Stencil\Components\Section;
-use Javaabu\Stencil\Contracts\ResolvesTranslatableFields;
 use Javaabu\Stencil\Fields\DateTimePicker;
 use Javaabu\Stencil\Fields\Select;
 use Javaabu\Stencil\Fields\Textarea;
@@ -39,7 +35,7 @@ use Javaabu\Stencil\Form;
  * Extend it and override a section method to change part of it; set your class
  * as `form()` in a PostsController subclass.
  */
-class PostForm extends Form implements ResolvesTranslatableFields
+class PostForm extends Form
 {
     public static function for(Post $post, bool $can_publish = true, ?string $id = null): static
     {
@@ -123,7 +119,7 @@ class PostForm extends Form implements ResolvesTranslatableFields
     }
 
     /**
-     * The post type's javaabu/meta fields, nested under `meta`
+     * The post type's javaabu/meta fields, nested under `meta` (meta[subtitle])
      */
     protected function metaSection(): ?Component
     {
@@ -131,14 +127,16 @@ class PostForm extends Form implements ResolvesTranslatableFields
             return null;
         }
 
-        $fields = array_values(array_map(fn (MetaField $field) => $field->field, $this->metaFields()));
+        $record = $this->getRecord();
+        $model = $record instanceof Model ? $record : Post::class;
+        $group = $record instanceof Model ? null : $this->postType()->getKey();
 
-        if ($fields === []) {
+        if (app(MetaFields::class)->formFields($model, $group) === []) {
             return null;
         }
 
         return Section::make(fn () => __('Details'))->schema([
-            Group::make()->statePath('meta')->schema($fields),
+            app(MetaFields::class)->nested($model, $group),
         ]);
     }
 
@@ -264,39 +262,6 @@ class PostForm extends Form implements ResolvesTranslatableFields
         }
 
         return $options;
-    }
-
-    /**
-     * @return array<string, MetaField>
-     */
-    protected function metaFields(): array
-    {
-        $record = $this->getRecord();
-
-        return $record instanceof Model
-            ? app(MetaFields::class)->fields($record)
-            : app(MetaFields::class)->fields(Post::class, $this->postType()->getKey());
-    }
-
-    /*
-    |--------------------------------------------------------------------------
-    | Translatable fields
-    |--------------------------------------------------------------------------
-    */
-
-    /**
-     * Title, excerpt and content follow the post model; meta fields follow
-     * their definition (javaabu/meta keeps one row per locale)
-     */
-    public function isTranslatableField(string $state_path): bool
-    {
-        if (Str::startsWith($state_path, 'meta.')) {
-            $field = $this->metaFields()[Str::after($state_path, 'meta.')] ?? null;
-
-            return $field !== null && $field->translatable && Translations::enabled();
-        }
-
-        return Translations::supports($this->getRecord() ?? PostTypes::postModel(), $state_path);
     }
 
     /**

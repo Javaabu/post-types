@@ -11,19 +11,24 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Javaabu\BlockEditor\Casts\AsBlockDocument;
 use Javaabu\BlockEditor\Document;
+use Javaabu\DynamicMenubuilder\DynamicMenubuilder;
 use Javaabu\Mediapicker\Concerns\InteractsWithAttachments;
 use Javaabu\Mediapicker\Contracts\HasAttachments;
 use Javaabu\Meta\Concerns\HasMeta;
+use Javaabu\PostTypes\Contracts\MenuLinkable;
 use Javaabu\PostTypes\Facades\PostTypes;
+use Javaabu\PostTypes\Integrations\Menus;
 use Javaabu\PostTypes\PostType;
 use Javaabu\PostTypes\Routing\PostTypeRoutes;
 use Javaabu\PostTypes\Status;
 use Javaabu\PostTypes\Support\Slug;
 use Javaabu\Stencil\Components\Component;
+use Javaabu\Stencil\Contracts\ResolvesTranslatableFields;
 use Javaabu\Stencil\Fields\Field;
 
 /**
- * A post of any post type. `type` is the post type's key.
+ * A post of any post type. `type` is the post type's key. Stencil asks it
+ * (through HasMeta) which fields are translatable, meta fields included.
  *
  * @property int $id
  * @property string $type
@@ -41,7 +46,7 @@ use Javaabu\Stencil\Fields\Field;
  * @property Carbon|null $updated_at
  * @property Carbon|null $deleted_at
  */
-class Post extends Model implements HasAttachments
+class Post extends Model implements HasAttachments, MenuLinkable, ResolvesTranslatableFields
 {
     use HasMeta;
     use InteractsWithAttachments;
@@ -94,6 +99,10 @@ class Post extends Model implements HasAttachments
 
         static::saved(function (Post $post) {
             $post->savePendingTerms();
+        });
+
+        static::forceDeleted(function (Post $post) {
+            $post->removeFromMenus();
         });
     }
 
@@ -498,6 +507,73 @@ class Post extends Model implements HasAttachments
         }
 
         return $conversion === '' ? $attachment->getUrl() : $attachment->getAvailableUrl([$conversion]);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Menus (javaabu/dynamic-menubuilder, optional)
+    |--------------------------------------------------------------------------
+    */
+
+    public function getMenuLinkTitle(?string $locale = null): string
+    {
+        $title = $locale !== null && method_exists($this, 'translate')
+            ? $this->translate('title', $locale)
+            : $this->title;
+
+        return (string) ($title ?: $this->getKey());
+    }
+
+    public function getMenuLinkUrl(?string $locale = null): ?string
+    {
+        return $this->url();
+    }
+
+    /**
+     * Each post type's source sets its own archive URL
+     */
+    public static function getMenuLinkIndexUrl(?string $locale = null): ?string
+    {
+        return null;
+    }
+
+    /**
+     * Menus show published posts only
+     */
+    public function isMenuLinkVisible(): bool
+    {
+        return $this->isPublished();
+    }
+
+    /**
+     * @param  Builder<static>  $query
+     * @return Builder<static>
+     */
+    public static function searchMenuLinks(Builder $query, string $search): Builder
+    {
+        return $query->search($search);
+    }
+
+    /**
+     * Delete the menu items that link to the post; their children take their place
+     */
+    public function removeFromMenus(): void
+    {
+        if (! Menus::installed()) {
+            return;
+        }
+
+        $model = DynamicMenubuilder::menuItemModel();
+
+        $items = $model::query()
+            ->where('linkable_type', $this->getMorphClass())
+            ->where('linkable_id', $this->getKey())
+            ->get();
+
+        foreach ($items as $item) {
+            $item->children()->update(['parent_id' => $item->parent_id]);
+            $item->delete();
+        }
     }
 
     /*

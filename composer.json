@@ -45,6 +45,7 @@
     "require-dev": {
         "inertiajs/inertia-laravel": "^2.0",
         "javaabu/boost-javaabu-guidelines": "^1.4",
+        "javaabu/dynamic-menubuilder": "^1.0@dev",
         "javaabu/translatable": "^3.0@dev",
         "laravel/pint": "^1.24",
         "orchestra/testbench": "^10.0 || ^11.0",
@@ -52,6 +53,7 @@
     },
     "suggest": {
         "inertiajs/inertia-laravel": "Renders the admin and public pages with Inertia React when post-types.views is inertia (^2.0)",
+        "javaabu/dynamic-menubuilder": "Add posts and post type archives to menus (^1.0)",
         "javaabu/translatable": "Posts and terms in several languages (^3.0)"
     },
     "autoload": {
@@ -95,6 +97,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/Javaabu/filters"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/n4ff4h/dynamic-menubuilder"
         },
         {
             "type": "vcs",
