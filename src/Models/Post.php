@@ -59,7 +59,15 @@ class Post extends Model implements HasAttachments
         'status',
         'published_at',
         'meta',
+        'taxonomies',
     ];
+
+    /**
+     * Terms assigned with the `taxonomies` attribute, synced when the post is saved
+     *
+     * @var array<string, mixed>
+     */
+    protected array $pending_terms = [];
 
     protected $attributes = [
         'status' => Status::DRAFT,
@@ -78,10 +86,14 @@ class Post extends Model implements HasAttachments
         ];
     }
 
-    public static function bootPost(): void
+    protected static function booted(): void
     {
         static::saving(function (Post $post) {
             $post->fillDefaults();
+        });
+
+        static::saved(function (Post $post) {
+            $post->savePendingTerms();
         });
     }
 
@@ -176,6 +188,51 @@ class Post extends Model implements HasAttachments
         $this->terms()->sync([...$others, ...$valid]);
 
         $this->unsetRelation('terms');
+    }
+
+    /**
+     * The post's term ids by taxonomy of its post type: `['categories' => [1, 4]]`,
+     * a single id for taxonomies that take one
+     *
+     * @return array<string, mixed>
+     */
+    public function getTaxonomiesAttribute(): array
+    {
+        $values = [];
+
+        foreach ($this->postType()?->getTaxonomies() ?? [] as $key => $taxonomy) {
+            $ids = $this->exists ? $this->termsOf($key)->modelKeys() : [];
+
+            $values[$key] = $taxonomy->isMultiple() ? $ids : ($ids[0] ?? null);
+        }
+
+        return $values;
+    }
+
+    /**
+     * Assign terms by taxonomy: `['categories' => [1, 4], 'tags' => []]`. Taxonomies
+     * left out keep their terms. Saved with the post.
+     *
+     * @param  array<string, mixed>|null  $value
+     */
+    public function setTaxonomiesAttribute(?array $value): void
+    {
+        foreach ($value ?? [] as $taxonomy => $terms) {
+            $this->pending_terms[$taxonomy] = $terms;
+        }
+    }
+
+    /**
+     * Sync the terms assigned before the post was saved
+     */
+    public function savePendingTerms(): void
+    {
+        $pending = $this->pending_terms;
+        $this->pending_terms = [];
+
+        foreach ($pending as $taxonomy => $terms) {
+            $this->syncTerms($taxonomy, array_filter(is_iterable($terms) ? $terms : [$terms], fn ($term) => filled($term)));
+        }
     }
 
     /*
@@ -305,11 +362,12 @@ class Post extends Model implements HasAttachments
             return;
         }
 
-        $like = '%' . addcslashes($search, '%_\\') . '%';
+        // '!' escapes the wildcards, the same in MySQL and SQLite
+        $like = '%' . str_replace(['!', '%', '_'], ['!!', '!%', '!_'], $search) . '%';
 
         $query->where(function (Builder $query) use ($like) {
             foreach ($this->searchColumns() as $column) {
-                $query->orWhere($this->qualifyColumn($column), 'like', $like);
+                $query->orWhereRaw($query->getGrammar()->wrap($this->qualifyColumn($column)) . " like ? escape '!'", [$like]);
             }
         });
     }

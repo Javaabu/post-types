@@ -58,7 +58,7 @@ class Term extends Model
         ];
     }
 
-    public static function bootTerm(): void
+    protected static function booted(): void
     {
         static::saving(function (Term $term) {
             $term->fillDefaults();
@@ -127,11 +127,12 @@ class Term extends Model
             return;
         }
 
-        $like = '%' . addcslashes($search, '%_\\') . '%';
+        // '!' escapes the wildcards, the same in MySQL and SQLite
+        $like = '%' . str_replace(['!', '%', '_'], ['!!', '!%', '!_'], $search) . '%';
 
         $query->where(function (Builder $query) use ($like) {
             foreach ($this->searchColumns() as $column) {
-                $query->orWhere($this->qualifyColumn($column), 'like', $like);
+                $query->orWhereRaw($query->getGrammar()->wrap($this->qualifyColumn($column)) . " like ? escape '!'", [$like]);
             }
         });
     }
