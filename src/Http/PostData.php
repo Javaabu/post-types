@@ -56,7 +56,7 @@ class PostData
             'terms' => $this->terms($post),
             'thumbnail' => $this->type->supportsFeature(PostType::MEDIA) ? $this->thumbnail($post) : null,
             'translations' => Translations::status($post),
-            'url' => $trashed ? null : $post->url(),
+            'url' => $trashed ? null : $post->permalink(),
             'edit_url' => ! $trashed && $gate->allows('update', $post) ? $this->route('edit', $id) : null,
             'delete_url' => ! $trashed && $gate->allows('delete', $post) ? $this->route('destroy', $id) : null,
             'restore_url' => $trashed && $gate->allows('restore', $post) ? $this->route('restore', $id) : null,

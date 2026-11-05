@@ -86,7 +86,7 @@ class PublicPostsController extends Controller
 
         // Another path to the post (an old date, a changed category): send it to its permalink
         if (! $permalink->matches($post, array_map(fn ($value) => rawurldecode((string) $value), $parameters))) {
-            $url = $post->url();
+            $url = $post->permalink();
 
             if ($url) {
                 return redirect()->to($url, 301);

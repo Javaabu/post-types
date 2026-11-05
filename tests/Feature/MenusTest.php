@@ -51,7 +51,7 @@ class MenusTest extends TestCase
         $post = $this->makePost(['status' => 'published', 'published_at' => '2026-03-04']);
         $draft = $this->makePost(['title' => 'ޑްރާފްޓް']);
 
-        $this->assertSame($post->url(), $post->getMenuLinkUrl());
+        $this->assertSame($post->permalink(), $post->getMenuLinkUrl());
         $this->assertSame('ރާއްޖޭގެ ޚަބަރު', $post->getMenuLinkTitle());
         $this->assertTrue($post->isMenuLinkVisible());
         $this->assertFalse($draft->isMenuLinkVisible());

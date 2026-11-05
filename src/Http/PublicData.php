@@ -31,7 +31,7 @@ class PublicData
             'id' => $post->getKey(),
             'title' => (string) $post->title,
             'slug' => $post->slug,
-            'url' => $post->url(),
+            'url' => $post->permalink(),
             'summary' => $this->type->supportsFeature(PostType::EXCERPT) || $this->type->supportsFeature(PostType::CONTENT) ? $post->summary() : null,
             'published_at' => $post->published_at?->toIso8601String(),
             'published_at_label' => $post->published_at?->translatedFormat('j F Y'),
@@ -71,7 +71,7 @@ class PublicData
             'slug' => $term->slug,
             'description' => $term->description,
             'taxonomy' => $term->taxonomy,
-            'url' => $term->url($this->type),
+            'url' => $term->archiveUrl($this->type),
         ];
     }
 
@@ -115,7 +115,7 @@ class PublicData
                 'label' => $taxonomy->getPluralLabel(),
                 'terms' => $terms->map(fn (Term $term) => [
                     'name' => (string) $term->name,
-                    'url' => $term->url($this->type),
+                    'url' => $term->archiveUrl($this->type),
                 ])->values()->all(),
             ];
         }

@@ -155,7 +155,7 @@ class InertiaPagesTest extends TestCase
                 ->where('title', 'ކުޅިވަރު')
                 ->etc());
 
-        $response = $this->get($post->url())
+        $response = $this->get($post->permalink())
             ->assertInertia(fn (AssertableInertia $page) => $page
                 ->component('post-types::Public/Single')
                 ->where('post.title', 'ރާއްޖޭގެ ޚަބަރު')

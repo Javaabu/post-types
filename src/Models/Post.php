@@ -462,7 +462,7 @@ class Post extends Model implements HasAttachments, MenuLinkable, ResolvesTransl
      * The permalink, or null when the post type has no public pages or public
      * routes aren't registered
      */
-    public function url(): ?string
+    public function permalink(): ?string
     {
         return PostTypeRoutes::postUrl($this);
     }
@@ -526,7 +526,7 @@ class Post extends Model implements HasAttachments, MenuLinkable, ResolvesTransl
 
     public function getMenuLinkUrl(?string $locale = null): ?string
     {
-        return $this->url();
+        return $this->permalink();
     }
 
     /**

@@ -29,8 +29,8 @@ class PublicPagesTest extends TestCase
 
         $post = $this->makePost(['status' => 'published', 'published_at' => '2026-03-04']);
 
-        $this->assertSame(url('news/2026/' . rawurlencode('ރާއްޖޭގެ-ޚަބަރު')), $post->url());
-        $this->assertSame(url('page/about'), $this->makePost(['type' => 'page', 'title' => 'About'])->url());
+        $this->assertSame(url('news/2026/' . rawurlencode('ރާއްޖޭގެ-ޚަބަރު')), $post->permalink());
+        $this->assertSame(url('page/about'), $this->makePost(['type' => 'page', 'title' => 'About'])->permalink());
     }
 
     #[Test]
@@ -79,12 +79,12 @@ class PublicPagesTest extends TestCase
             'content' => ['type' => 'doc', 'content' => [['type' => 'paragraph', 'content' => [['type' => 'text', 'text' => 'ދިވެހި ބަސް']]]]],
         ]);
 
-        $this->get($post->url())
+        $this->get($post->permalink())
             ->assertOk()
             ->assertSee('ރާއްޖޭގެ ޚަބަރު')
             ->assertSee('ދިވެހި ބަސް');
 
-        $this->getJson($post->url())->assertJsonPath('data.title', 'ރާއްޖޭގެ ޚަބަރު');
+        $this->getJson($post->permalink())->assertJsonPath('data.title', 'ރާއްޖޭގެ ޚަބަރު');
     }
 
     #[Test]
@@ -92,7 +92,7 @@ class PublicPagesTest extends TestCase
     {
         $post = $this->makePost(['status' => 'published', 'published_at' => '2026-03-04']);
 
-        $this->get('/news/2025/' . rawurlencode($post->slug))->assertRedirect($post->url())->assertStatus(301);
+        $this->get('/news/2025/' . rawurlencode($post->slug))->assertRedirect($post->permalink())->assertStatus(301);
     }
 
     #[Test]
@@ -101,15 +101,15 @@ class PublicPagesTest extends TestCase
         $draft = $this->makePost(['title' => 'ޑްރާފްޓް', 'published_at' => '2026-01-01']);
         $scheduled = $this->makePost(['title' => 'ޝެޑިއުލް', 'status' => 'published', 'published_at' => '2026-12-01']);
 
-        $this->get($draft->url())->assertNotFound();
-        $this->get($scheduled->url())->assertNotFound();
+        $this->get($draft->permalink())->assertNotFound();
+        $this->get($scheduled->permalink())->assertNotFound();
 
         $this->actingAs($this->user())
-            ->get($draft->url())
+            ->get($draft->permalink())
             ->assertOk()
             ->assertSee('This is a preview.');
 
-        $this->actingAs($this->user(['view_news']))->get($draft->url())->assertNotFound();
+        $this->actingAs($this->user(['view_news']))->get($draft->permalink())->assertNotFound();
     }
 
     #[Test]

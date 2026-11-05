@@ -140,7 +140,7 @@ class Term extends Model
     /**
      * The term's archive for a post type, or null when it has none
      */
-    public function url(PostType|string $post_type): ?string
+    public function archiveUrl(PostType|string $post_type): ?string
     {
         return PostTypeRoutes::termUrl($this, $post_type);
     }
