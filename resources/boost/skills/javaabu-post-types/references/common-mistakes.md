@@ -13,3 +13,4 @@
 - **Public routes before your own.** A post type with `->slug('')` catches `/{slug}`. Register `Route::postTypes()` after your other routes.
 - **Forgetting the sync.** Permissions exist only after `php artisan permissions:sync`; without them every page is 403.
 - **Forgetting the media library.** The featured image picker needs `Route::mediapicker()` for the admin guard and a `MediaOwner` user model.
+- **Importing the styles by hand on Inertia.** `PostCard` and the public pages import `resources/css/post-types.css` themselves, so Vite bundles it. An `@import` of it in the app's CSS loads it twice.

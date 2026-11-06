@@ -80,4 +80,4 @@ The package's views use the partials `post-types::partials.card`, `partials.meta
 
 # Inertia
 
-With `post-types.views` set to `inertia`, the pages are `post-types::Public/Archive`, `Public/Term` and `Public/Single`, with the same props (without `$paginator` and `$record`). Use your own per post type with `->pages(['single' => 'News/Show'])`, or override the package's through manifest (`resources/vendor/post-types/js/Pages/Public/Single.tsx`).
+With `post-types.views` set to `inertia`, the pages are `post-types::Public/Archive`, `Public/Term` and `Public/Single`, with the same props (without `$paginator` and `$record`). They import the package's stylesheet themselves, so Vite bundles it with them. Use your own per post type with `->pages(['single' => 'News/Show'])`, or override the package's through manifest (`resources/vendor/post-types/js/Pages/Public/Single.tsx`).

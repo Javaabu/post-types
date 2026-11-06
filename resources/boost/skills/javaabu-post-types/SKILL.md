@@ -104,7 +104,7 @@ Post::create([
 
 ## 4. Templates
 
-Put a Blade view at `resources/views/post-types/news/single.blade.php` (or `archive`, `term`) to replace the package's for news; it gets `$post` (array), `$record` (the model), `$strings` and `$layout`. For Inertia, `->pages(['single' => 'News/Show'])` with `PublicSingleProps` from `@javaabu/post-types`.
+Put a Blade view at `resources/views/post-types/news/single.blade.php` (or `archive`, `term`) to replace the package's for news; it gets `$post` (array), `$record` (the model), `$strings` and `$layout`. For Inertia, `->pages(['single' => 'News/Show'])` with `PublicSingleProps` from `@javaabu/post-types`. `PostCard` and the public pages import the package's stylesheet, so Vite bundles it: don't `@import` `post-types.css` in the app's CSS. The npm packages the pages need (React, `@javaabu/forms`, `@javaabu/onu`) are declared for pages only, so `php artisan manifest:check` asks for them only when the app's `package.json` has `@inertiajs/react`.
 
 ```blade
 @extends('layouts.public')

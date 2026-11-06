@@ -121,7 +121,9 @@ createInertiaApp({
 })
 ```
 
-Install what the pages import (`php artisan manifest:check` lists it), and render them inside your layout and `FormsProvider` with the Inertia router, as for other javaabu/forms pages. Wrap the app in the media picker's `MediapickerProvider` so the post form's pickers know your library's URL.
+Install what the pages import (`php artisan manifest:check` lists it once your `package.json` has `@inertiajs/react`), and render them inside your layout and `FormsProvider` with the Inertia router, as for other javaabu/forms pages. Wrap the app in the media picker's `MediapickerProvider` so the post form's pickers know your library's URL.
+
+The styles come with the components: `PostCard` and the public pages import `resources/css/post-types.css`, so Vite bundles it with any page that renders them. There's nothing to import in your app's CSS. (Blade pages get the same stylesheet from manifest's injection, as before.)
 
 # Publishing
 

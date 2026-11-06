@@ -71,4 +71,8 @@ Or register them for every form with stencil's `StencilProvider` at the root of 
 
 # What the pages need
 
-The admin pages use `@javaabu/forms` (inside your `FormsProvider` with the Inertia router), `@javaabu/filters`' `FilterBar` and `SortableHeading`, `@javaabu/bulk-actions`' `BulkActionsTable`, `@javaabu/stencil`'s `StencilForm`, and the block editor's and media picker's React fields. Wrap the app in the media picker's `MediapickerProvider`. `php artisan manifest:check` lists the npm packages your app is missing.
+The admin pages use `@javaabu/forms` (inside your `FormsProvider` with the Inertia router), `@javaabu/filters`' `FilterBar` and `SortableHeading`, `@javaabu/bulk-actions`' `BulkActionsTable`, `@javaabu/stencil`'s `StencilForm`, and the block editor's and media picker's React fields. Wrap the app in the media picker's `MediapickerProvider`. `php artisan manifest:check` lists the npm packages your app is missing. post-types declares them for its pages only (`npm(..., for: 'pages')`), so Blade-only apps aren't asked for them.
+
+# Styles
+
+`PostCard`, `PostMeta`, `PostTerms` and the public pages import the package's stylesheet (`resources/css/post-types.css`), so Vite bundles it with whatever page renders them, the package's or yours. Don't import it in your app's CSS as well. The admin pages use javaabu/forms' and the other packages' components and have no styles of their own.

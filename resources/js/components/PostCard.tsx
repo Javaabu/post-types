@@ -1,3 +1,5 @@
+// The package styles, so Vite bundles them with any page that renders this
+import "../../css/post-types.css"
 import { format } from "../format"
 import type { PublicPost, PublicStrings } from "../types"
 

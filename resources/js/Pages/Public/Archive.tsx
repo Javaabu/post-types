@@ -1,3 +1,5 @@
+// The package styles, so Vite bundles them with any page that renders this
+import "../../../css/post-types.css"
 import { PostCard } from "../../components/PostCard"
 import type { PublicArchiveProps } from "../../types"
 

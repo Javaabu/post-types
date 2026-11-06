@@ -1,3 +1,5 @@
+// The package styles, so Vite bundles them with any page that renders this
+import "../../../css/post-types.css"
 import { BlockContent } from "@javaabu/block-editor/react"
 import { Alert } from "@javaabu/forms"
 import { PostMeta, PostTerms } from "../../components/PostCard"
