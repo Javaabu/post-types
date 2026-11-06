@@ -9,6 +9,7 @@ use Javaabu\BulkActions\Actions\DeleteAction;
 use Javaabu\BulkActions\Actions\ForceDeleteAction;
 use Javaabu\BulkActions\Actions\RestoreAction;
 use Javaabu\BulkActions\BulkActions;
+use Javaabu\PostTypes\Facades\PostTypes;
 use Javaabu\PostTypes\Filters\PostFilters;
 use Javaabu\PostTypes\Models\Post;
 use Javaabu\PostTypes\PostType;
@@ -19,8 +20,9 @@ use Javaabu\PostTypes\Status;
  * move to drafts, trash, restore and delete for good, each checked against
  * the post policy for every post
  *
- * They run during the request: bulk-actions' queued runs rebuild a set with
- * `make()`, which can't know the post type.
+ * Large selections are queued like other bulk actions (`bulk-actions.queue_after`):
+ * the run stores the post type's key as its context, and the queue job rebuilds
+ * the set with fromContext().
  */
 class PostBulkActions extends BulkActions
 {
@@ -40,7 +42,17 @@ class PostBulkActions extends BulkActions
             ->name('posts')
             ->query(fn () => $post_type->query())
             ->filters(fn (Builder $query, array $filters) => PostFilters::for($post_type)->fromQuery($filters)->applyFilters($query))
-            ->queueAfter(false);
+            ->withContext(['post_type' => $post_type->getKey()]);
+    }
+
+    /**
+     * Rebuilds a queued run's set for its post type
+     *
+     * @param  array<string, mixed>  $context
+     */
+    public static function fromContext(array $context): static
+    {
+        return static::for(PostTypes::get((string) ($context['post_type'] ?? '')));
     }
 
     public function getPostType(): ?PostType

@@ -45,7 +45,7 @@ Hooks and building blocks you can override: `saved()`, `deleted()`, `form()`, `f
 - `Javaabu\PostTypes\Forms\PostForm`: override `mainSection()`, `metaSection()`, `publishSection()`, `mediaSection()`, `taxonomiesSection()`, `taxonomyField()` or `definition()`.
 - `Javaabu\PostTypes\Forms\TermForm`.
 - `Javaabu\PostTypes\Filters\PostFilters` (`PostFilters::for($type)`): override `filters()` and `sorts()`.
-- `Javaabu\PostTypes\BulkActions\PostBulkActions` (`PostBulkActions::for($type)`): override `actions()`.
+- `Javaabu\PostTypes\BulkActions\PostBulkActions` (`PostBulkActions::for($type)`): override `actions()`. A queued run rebuilds your subclass with `fromContext(['post_type' => …])`, which calls `for()`. If you add context with `withContext()`, it may only hold scalars, nulls and arrays (keys, not models). Keep actions free of `request()` and `auth()`: queued ones run in a job, for the user who started them.
 
 ```php
 class PostFilters extends \Javaabu\PostTypes\Filters\PostFilters

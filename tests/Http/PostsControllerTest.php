@@ -3,6 +3,9 @@
 namespace Javaabu\PostTypes\Tests\Http;
 
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Queue;
+use Javaabu\BulkActions\Jobs\RunBulkAction;
+use Javaabu\BulkActions\Models\BulkActionRun;
 use Javaabu\PostTypes\Models\Post;
 use Javaabu\PostTypes\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Test;
@@ -232,6 +235,36 @@ class PostsControllerTest extends TestCase
             ->post('/admin/news/bulk', ['action' => 'delete', 'posts' => [$first->id]]);
 
         $this->assertSoftDeleted($first);
+    }
+
+    #[Test]
+    public function it_queues_large_bulk_actions_for_the_post_type(): void
+    {
+        Queue::fake();
+        config()->set('bulk-actions.queue_after', 1);
+
+        $first = $this->makePost(['title' => 'ޚަބަރު 1']);
+        $second = $this->makePost(['title' => 'ޚަބަރު 2']);
+        $page = $this->makePost(['title' => 'ޞަފްޙާ', 'type' => 'page']);
+
+        $this->actingAs($this->user())
+            ->from('/admin/news')
+            ->post('/admin/news/bulk', ['action' => 'publish', 'posts' => [$first->id, $second->id]])
+            ->assertRedirect('/admin/news');
+
+        $run = BulkActionRun::query()->sole();
+
+        $this->assertSame(['post_type' => 'news'], $run->context);
+        $this->assertFalse($first->fresh()->isPublished());
+        Queue::assertPushed(RunBulkAction::class);
+
+        // The job only has the run: the set is rebuilt for news from the context
+        (new RunBulkAction($run))->handle();
+
+        $this->assertSame(2, $run->fresh()->succeeded);
+        $this->assertTrue($first->fresh()->isPublished());
+        $this->assertTrue($second->fresh()->isPublished());
+        $this->assertFalse($page->fresh()->isPublished());
     }
 
     #[Test]

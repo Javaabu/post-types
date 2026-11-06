@@ -15,5 +15,6 @@ Initial development of v1.0:
 - Permissions per post type and taxonomy through javaabu/permissions, `PostPolicy` and `TermPolicy`, ownable post types, any guard; overridable controllers, forms, filters, bulk actions and policies.
 - Optional javaabu/translatable (translatable posts, terms and meta), javaabu/dynamic-menubuilder (post types as menu sources) and Inertia.
 - English and Dhivehi strings, RTL-safe views and styles; docs, `llms.txt` and the Laravel Boost guideline and skill.
+- Large post bulk actions are queued like other packages' (`bulk-actions.queue_after`): `PostBulkActions` stores the post type's key as the run's context and is rebuilt with `fromContext()` (Javaabu/bulk-actions#13). Needs bulk-actions' `context` column: run `php artisan migrate`.
 - The npm packages only the Inertia pages and React components need (React, `@javaabu/forms`, `@javaabu/onu`) are declared with `npm(..., for: 'pages')`, so Blade-only apps' `php artisan manifest:check` doesn't ask for them.
 - `PostCard` and the public React pages import the package's stylesheet, so Vite bundles it on Inertia pages without an import in the app's CSS.

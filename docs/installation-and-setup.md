@@ -13,12 +13,14 @@ The service provider is discovered automatically, along with those of its depend
 
 # Migrating
 
-The package loads its own migration: the `posts`, `post_terms` and `post_term` tables. javaabu/meta and javaabu/mediapicker load theirs (`meta`, `attachments`). Publish spatie/laravel-medialibrary's `media` table, then migrate:
+The package loads its own migration: the `posts`, `post_terms` and `post_term` tables. javaabu/meta, javaabu/mediapicker and javaabu/bulk-actions load theirs (`meta`, `attachments`, `bulk_action_runs`). Publish spatie/laravel-medialibrary's `media` table, then migrate:
 
 ```bash
 php artisan vendor:publish --provider="Spatie\MediaLibrary\MediaLibraryServiceProvider" --tag="medialibrary-migrations"
 php artisan migrate
 ```
+
+If you installed a pre-release before queued bulk actions on posts, run `php artisan migrate` again after updating. It adds bulk-actions' `context` column to `bulk_action_runs`, where queued runs keep their post type.
 
 To publish the package's migration instead of loading it (to add columns, say), publish it and turn the loading off:
 
